@@ -121,9 +121,9 @@ export const getPokemonData = async (species: string, variant: string): Promise<
 	const genus: string = genera.filter(
 		(g: { language: { name: string } }) => g.language.name === 'en'
 	)[0].genus;
-	const dexNum = pokedex_numbers.filter(
-		(d: { pokedex: { name: string } }) => d.pokedex.name === 'national'
-	)[0]?.entry_number || speciesData.id;
+	const dexNum =
+		pokedex_numbers.filter((d: { pokedex: { name: string } }) => d.pokedex.name === 'national')[0]
+			?.entry_number || speciesData.id;
 
 	const variants = filterVarieties(varieties);
 

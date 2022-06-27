@@ -6,7 +6,9 @@
 </script>
 
 <figure>
-	<img alt={altText} src={url} class={pixelated ? 'pixelated' : ''} />
+	<div>
+		<img alt={altText} src={url} class={pixelated ? 'pixelated' : ''} />
+	</div>
 	<figcaption>{caption}</figcaption>
 </figure>
 
@@ -23,6 +25,8 @@
 	img {
 		/* height: 64px; */
 		max-height: 64px;
+		max-width: 64px;
+		aspect-ratio: 1;
 	}
 
 	.pixelated {

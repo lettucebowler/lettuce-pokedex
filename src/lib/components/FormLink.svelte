@@ -17,8 +17,8 @@
 		caption={`${capitalize(formName)}`}
 		altText={`${formName} form`}
 		url={formName === 'default'
-			? `/home/${id}.webp`
-			: `/home/${id}-${form.split('-').slice(1).join('-')}.webp`}
+			? `/home/${id}-64.webp`
+			: `/home/${id}-${form.split('-').slice(1).join('-')}-64.webp`}
 		pixelated={true}
 	/>
 </a>

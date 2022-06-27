@@ -71,7 +71,6 @@
 
 	img {
 		object-fit: contain;
-		image-rendering: pixelated;
 		height: 128px;
 	}
 
