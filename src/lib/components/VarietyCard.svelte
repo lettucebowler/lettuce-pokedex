@@ -23,7 +23,7 @@
 						altText={vari.pokemon.name}
 						caption={vari.pokemon.name}
 						url={`${link(vari.pokemon.url.split('/').at(-2))}`}
-						pixelated={true}
+						pixelated={false}
 					/>
 				</a>
 			</div>

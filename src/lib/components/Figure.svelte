@@ -23,7 +23,6 @@
 	}
 
 	img {
-		/* height: 64px; */
 		max-height: 64px;
 		max-width: 64px;
 		aspect-ratio: 1;
