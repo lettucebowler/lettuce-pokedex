@@ -7,15 +7,13 @@
 </svelte:head>
 
 <div class="width">
-	<div class="wrapper-dark">
-		<div class="wrapper-medium">
-			<div class="wrapper-light grid">
-				<a title="link to home page" href="/">
-					<h1>Pokédex</h1>
-				</a>
-				<div class="search">
-					<SpeciesSearchForm />
-				</div>
+	<div class="wrapper-medium">
+		<div class="wrapper-light grid">
+			<a title="link to home page" href="/">
+				<h1>Pokédex</h1>
+			</a>
+			<div class="search">
+				<SpeciesSearchForm />
 			</div>
 		</div>
 	</div>
@@ -48,21 +46,18 @@
 
 	.wrapper-medium {
 		background-color: var(--default-color);
-		border-radius: 0px 0px 24px 24px;
-		padding: 0px 8px 8px 8px;
+		border-radius: 0px 0px 20px 20px;
+		border-left: 2px solid var(--default-color-dark);
+		border-right: 2px solid var(--default-color-dark);
+		border-bottom: 2px solid var(--default-color-dark);
+		padding: 0px 4px 4px 4px;
+		margin: 0 auto 8px auto;
 	}
 
 	.wrapper-light {
 		background-color: var(--default-color-light);
 		border-radius: 0px 0px 16px 16px;
 		padding: 8px;
-	}
-
-	.wrapper-dark {
-		background-color: var(--default-color-dark);
-		padding: 0px 2px 2px 2px;
-		margin: 0 auto 8px auto;
-		border-radius: 0px 0px 26px 26px;
 	}
 
 	.width {
