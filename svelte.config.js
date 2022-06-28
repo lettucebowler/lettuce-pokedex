@@ -10,7 +10,7 @@ const config = {
 	kit: {
 		adapter: adapter({ out: 'build' }),
 		prerender: {
-			concurrency: 10,
+			concurrency: 25,
 			onError: 'continue'
 		}
 	}
