@@ -11,7 +11,7 @@ export async function get({
 
 	return {
 		headers: {
-			'cache-control': 'public maxage=604800'
+			'cache-control': 'public, maxage=604800'
 		},
 		body: {
 			pokemonData,
