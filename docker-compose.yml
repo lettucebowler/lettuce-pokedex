@@ -7,7 +7,6 @@ services:
     restart: unless-stopped
     environment:
       - TZ=America/Chicago
-      - VITE_IMAGE_HOST=https://cdn.dex.rusondia.net
 networks:
   default:
     external:
