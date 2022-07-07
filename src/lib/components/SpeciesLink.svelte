@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { useLazyImage as lazyImage } from 'svelte-lazy-image';
+	import { variables } from '$lib/variables';
 
 	const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
@@ -9,7 +9,7 @@
 	export let hover = false;
 	export let size = 128;
 	export let wide = false;
-	const link = (id: number) => `${process.env.IMAGE_HOST || ''}/home/${id}-${size}.webp`;
+	const link = (id: number) => `${variables.imageHost || ''}/home/${id}-${size}.webp`;
 	$: style = `${size ? `max-height:${size}px;` : ''}`;
 </script>
 

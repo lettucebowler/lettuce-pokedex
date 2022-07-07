@@ -1,10 +1,11 @@
 <script lang="ts">
 	import Figure from './Figure.svelte';
+	import { variables } from '$lib/variables';
 
 	export let varieties: any[];
 	export let species: string;
 
-	const link = (id: number | string) => `${process.env.IMAGE_HOST || ''}/home/${id}-64.webp`;
+	const link = (id: number | string) => `${variables.imageHost || ''}/home/${id}-64.webp`;
 </script>
 
 <div class="white flex-column padded rounded wide">

@@ -4,7 +4,7 @@ export type Reference = {
 };
 
 export type PokemonVariant = {
-	is_default: Boolean;
+	is_default: boolean;
 	pokemon: Reference;
 };
 

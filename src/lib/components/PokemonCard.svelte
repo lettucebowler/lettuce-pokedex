@@ -4,6 +4,7 @@
 	import Type from '$lib/components/Type.svelte';
 	import FormLink from '$lib/components/FormLink.svelte';
 	import { leftPad, capitalize } from '$lib/util/helpers';
+	import { variables } from '$lib/variables';
 
 	export let id: number;
 	export let dexNum: number;
@@ -16,7 +17,7 @@
 	export let forms: any[] = [];
 
 	$: types = secondaryType === primaryType ? [primaryType] : [primaryType, secondaryType];
-	const homeLink = (id: number | string) => `/home/${id}.webp`;
+	const homeLink = (id: number | string) => `${variables.imageHost || ''}/home/${id}.webp`;
 </script>
 
 <TypeBorder {primaryType} {secondaryType}>
