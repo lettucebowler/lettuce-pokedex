@@ -9,7 +9,7 @@
 	export let hover = false;
 	export let size = 128;
 	export let wide = false;
-	const link = (id: number) => `/home/${id}-${size}.webp`;
+	const link = (id: number) => `${process.env.IMAGE_HOST || ''}/home/${id}-${size}.webp`;
 	$: style = `${size ? `max-height:${size}px;` : ''}`;
 </script>
 
@@ -22,10 +22,8 @@
 	>
 		{#if lazy}
 			<img
-				data-src={link(id)}
-				src={link(0)}
+				src={link(id)}
 				alt={species}
-				use:lazyImage
 				loading="lazy"
 				id={`${species}-sprite`}
 				{style}
