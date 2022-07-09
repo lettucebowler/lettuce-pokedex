@@ -71,6 +71,8 @@
 		margin: 0 auto;
 		display: block;
 		width: 100%;
+		max-height: 512px;
+		max-width: 512px;
 		aspect-ratio: 1;
 	}
 

@@ -26,6 +26,7 @@
 		max-height: 64px;
 		max-width: 64px;
 		aspect-ratio: 1;
+		height: 64px;
 	}
 
 	.pixelated {

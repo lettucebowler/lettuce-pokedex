@@ -5,12 +5,11 @@
 
 	export let id: number;
 	export let species: string;
-	export let lazy = false;
 	export let hover = false;
 	export let size = 128;
 	export let wide = false;
 	const link = (id: number) => `${variables.imageHost || ''}/home/${id}-${size}.webp`;
-	$: style = `${size ? `max-height:${size}px;` : ''}`;
+	$: style = `${size ? `max-height:${size}px;height:${size}px;width:${size}px` : ''}`;
 </script>
 
 <figure class={`${hover ? 'hover' : ''}`}>
@@ -20,24 +19,13 @@
 		alt={`Link to ${species} detail page`}
 		href={`/species/${species}/variant/default/form/default`}
 	>
-		{#if lazy}
-			<img
-				src={link(id)}
-				alt={species}
-				loading="lazy"
-				id={`${species}-sprite`}
-				{style}
-				class={`${wide ? 'wide' : ''}`}
-			/>
-		{:else}
-			<img
-				src={link(id)}
-				alt={species}
-				id={`${species}-sprite`}
-				{style}
-				class={`${wide ? 'wide' : ''}`}
-			/>
-		{/if}
+		<img
+			src={link(id)}
+			alt={species}
+			id={`${species}-sprite`}
+			{style}
+			class={`${wide ? 'wide' : ''}`}
+		/>
 	</a>
 	<figcaption>{capitalize(species)}</figcaption>
 </figure>
