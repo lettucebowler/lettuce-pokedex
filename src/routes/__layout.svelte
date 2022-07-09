@@ -1,12 +1,8 @@
 <script>
 	import SpeciesSearchForm from '$lib/components/SpeciesSearchForm.svelte';
-	import { variables } from '$lib/variables';
+	import '$lib/assets/icons.css';
+	import '$lib/assets/pokemon-types.css';
 </script>
-
-<svelte:head>
-	<link rel="stylesheet" href={`${variables.imageHost}/icons.css`} />
-	<link rel="stylesheet" href={`${variables.imageHost}/pokemon-types.css`} />
-</svelte:head>
 
 <div class="width">
 	<div class="wrapper-medium">
