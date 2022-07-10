@@ -12,7 +12,7 @@
 <TypeBorder {primaryType} {secondaryType}>
 	<div class="flex-column white rounded padded">
 		<h2>Description</h2>
-		<div class="description">{description}</div>
+		<p class="description">{description}</p>
 	</div>
 	<div class="flex-column white rounded padded">
 		<h2>Biology</h2>
@@ -70,6 +70,7 @@
 
 	.description {
 		font-size: 1.25rem;
+		margin: 0;
 	}
 
 	.white {
@@ -81,6 +82,6 @@
 	}
 
 	.padded {
-		padding: 8px;
+		padding: 8px 10px;
 	}
 </style>

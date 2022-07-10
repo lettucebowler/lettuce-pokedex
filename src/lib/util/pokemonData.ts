@@ -32,10 +32,11 @@ const varietyFilters: { [x: string]: boolean } = {
 	'pikachu-libre': true,
 	'pikachu-cosplay': true,
 	'pikachu-starter': true,
-	'eevee-starter': true
+	'eevee-starter': true,
+	'basculegion-female': true
 };
 
-const formFilters = ['pichu-spiky-eared', 'arceus-unknown'];
+const formFilters = ['pichu-spiky-eared', 'arceus-unknown', 'enamorus-incarnate'];
 
 const formSpeciesFilters = ['scatterbug', 'spewpa', 'sinistea', 'polteageist', 'mothim'];
 
@@ -72,8 +73,8 @@ const getPokemon = async (variety: any) => {
 	const pokemon = await pokemonResponse.json();
 	const { forms, abilities, height, weight, types, id } = pokemon;
 
-	const formData = forms.length ? await getForm(forms[0]) : {};
-	const name = formData.names.length ? formData.names.at(-1).name : '';
+	const formData = forms?.length ? await getForm(forms[0]) : {};
+	const name = formData?.names?.length ? formData.names.at(-1).name : '';
 	const formName = formData.name;
 	return {
 		abilities,
@@ -100,6 +101,10 @@ const filterForms = (species: string, forms: any[]) => {
 };
 
 const getEvolutionChain = async (url: string) => {
+	if (!url) {
+		return null;
+	}
+
 	const chainResponse = await fetch(url);
 
 	const evolutionChain = await chainResponse.json();
@@ -112,7 +117,6 @@ export const getPokemonData = async (species: string, variant: string): Promise<
 
 	const speciesResponse = await fetch(speciesUrl);
 	const speciesData = await speciesResponse.json();
-
 	const { name, flavor_text_entries, genera, pokedex_numbers, varieties, evolution_chain } =
 		speciesData;
 	const description: string = flavor_text_entries
@@ -137,7 +141,7 @@ export const getPokemonData = async (species: string, variant: string): Promise<
 	const navigation = getNavEntries(dexNum);
 
 	const pokemonPromise = getPokemon(selectedVariant);
-	const evolutionChainPromise = getEvolutionChain(evolution_chain.url);
+	const evolutionChainPromise = getEvolutionChain(evolution_chain?.url);
 
 	const [pokemon, evolutionChain] = await Promise.all([pokemonPromise, evolutionChainPromise]);
 

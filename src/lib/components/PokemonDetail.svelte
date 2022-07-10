@@ -29,7 +29,7 @@
 					weight={pokemonData.biology.weight}
 				/>
 			</div>
-			{#if pokemonData.evolutionChain.evolves_to.length}
+			{#if pokemonData?.evolutionChain?.evolves_to.length}
 				<EvolutionCard evolutionChain={pokemonData.evolutionChain} {primaryType} {secondaryType} />
 			{/if}
 		</div>

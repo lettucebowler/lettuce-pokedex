@@ -25,7 +25,7 @@
 			alt={species}
 			id={`${species}-sprite`}
 			{style}
-			loading={lazy && 'lazy' || ''}
+			loading={(lazy && 'lazy') || ''}
 			class={`${wide ? 'wide' : ''}`}
 		/>
 	</a>
