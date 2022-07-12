@@ -3,14 +3,13 @@
 	import SpeciesNav from '$lib/components/SpeciesNav.svelte';
 	import EvolutionCard from './EvolutionCard.svelte';
 	import InfoCard from '$lib/components/InfoCard.svelte';
-	import { modulo } from '$lib/util/helpers';
 	import type { PokemonData } from '$lib/types/types';
 
 	export let pokemonData: PokemonData;
 	export let form: any;
 
-	$: primaryType = pokemonData.types[0].type.name;
-	$: secondaryType = pokemonData?.types?.at(-1)?.type.name || primaryType;
+	$: primaryType = pokemonData.types[0];
+	$: secondaryType = pokemonData?.types?.at(-1) || primaryType;
 </script>
 
 <div class="column">

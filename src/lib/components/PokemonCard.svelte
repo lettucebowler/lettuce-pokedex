@@ -38,9 +38,9 @@
 		/>
 		{#if forms.length > 1}
 			<div class="row wrap padded-sm">
-				{#each forms.filter((f) => f.name !== form) as form, i}
+				{#each forms.filter((f) => f !== form) as form, i}
 					<div class="form2">
-						<FormLink {id} form={form.name} />
+						<FormLink {id} {form} />
 					</div>
 				{/each}
 			</div>

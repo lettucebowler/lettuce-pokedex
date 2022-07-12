@@ -17,18 +17,8 @@ type PokemonAbility = {
 	slot: number;
 };
 
-export type PokemonType = {
-	slot: number;
-	type: {
-		name: string;
-		url: string;
-	};
-};
-
 type PokemonEvolutionChain = {
-	evolution_details: any;
 	evolves_to: PokemonEvolutionChain[];
-	is_baby: boolean;
 	species: Reference;
 };
 
@@ -42,7 +32,7 @@ export type PokemonSpecies = {
 	abilities: PokemonAbility[];
 	height: number;
 	weight: number;
-	types: PokemonType[];
+	types: string[];
 	id: 1;
 	name: string;
 	formName: string;

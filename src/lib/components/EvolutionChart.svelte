@@ -5,11 +5,7 @@
 
 <div class="row">
 	<div class="column">
-		<SpeciesLink
-			species={evolutionChain.species.name}
-			id={evolutionChain.species.url.split('/').at(-2)}
-			wide={true}
-		/>
+		<SpeciesLink species={evolutionChain.species} id={evolutionChain.id} wide={true} />
 	</div>
 
 	{#if evolutionChain.evolves_to.length === 1}

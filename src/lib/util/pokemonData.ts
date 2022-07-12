@@ -88,28 +88,40 @@ const getPokemon = async (variety: any) => {
 	};
 };
 
-const filterVarieties = (varieties: any[]) => {
-	return varieties.filter((v: any) => {
-		return !varietyFilters[v.pokemon.name];
-	});
-};
-
 const filterForms = (species: string, forms: any[]) => {
 	return forms.filter(
 		(f) => !formFilters.includes(f.name) && !formSpeciesFilters.includes(species)
 	);
 };
 
+const filterVarieties = (varieties: any[]) => {
+	return varieties.filter((v: any) => {
+		return !varietyFilters[v.pokemon.name];
+	});
+};
+
+const cleanupChain = (chain: any) => {
+	return {
+		evolves_to: chain.evolves_to.map((chain: any) => cleanupChain(chain)),
+		species: chain.species.name,
+		id: parseInt(chain?.species?.url?.split('/').at(-2))
+	};
+};
+
 const getEvolutionChain = async (url: string) => {
 	if (!url) {
-		return null;
+		return {
+			evolves_to: [],
+			species: 'none',
+			id: 1
+		};
 	}
 
 	const chainResponse = await fetch(url);
-
 	const evolutionChain = await chainResponse.json();
 	const { chain } = evolutionChain;
-	return chain;
+	const cleaned = cleanupChain(chain);
+	return cleaned;
 };
 
 export const getPokemonData = async (species: string, variant: string): Promise<PokemonData> => {
@@ -145,6 +157,10 @@ export const getPokemonData = async (species: string, variant: string): Promise<
 
 	const [pokemon, evolutionChain] = await Promise.all([pokemonPromise, evolutionChainPromise]);
 
+	let { forms, types } = pokemon;
+	forms = forms.map((form) => form.name);
+	types = types.map((type: { type: { name: string } }) => type.type.name);
+
 	return {
 		species: name,
 		dexNum,
@@ -155,8 +171,8 @@ export const getPokemonData = async (species: string, variant: string): Promise<
 		},
 		evolutionChain,
 		variants,
-		forms: pokemon.forms,
-		types: pokemon.types,
+		forms,
+		types,
 		navigation,
 		genus,
 		id: pokemon.id
