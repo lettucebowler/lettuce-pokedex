@@ -8,7 +8,7 @@ const config = {
 	preprocess: preprocess(),
 
 	kit: {
-		adapter: adapter({ out: 'build' }),
+		adapter: adapter({ out: 'build', edge: true }),
 		prerender: {
 			concurrency: 25,
 			onError: 'continue'
