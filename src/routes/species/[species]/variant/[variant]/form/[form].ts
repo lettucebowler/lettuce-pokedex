@@ -1,6 +1,6 @@
 import { getPokemonData } from '$lib/util/pokemonData';
 
-export async function get({
+export async function GET({
 	params
 }: {
 	params: { species: string; variant: string; form: string };
