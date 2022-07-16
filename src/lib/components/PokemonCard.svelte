@@ -18,6 +18,15 @@
 
 	$: types = secondaryType === primaryType ? [primaryType] : [primaryType, secondaryType];
 	const homeLink = (id: number | string) => `${variables.imageHost || ''}/home/${id}.webp`;
+
+	let big = '/home/0.webp';
+
+	const importUrl = async (id: number) => {
+		const stuff = await import(`../assets/home/${id}.webp`);
+		big = stuff.default;
+	};
+
+	$: importUrl(id);
 </script>
 
 <TypeBorder {primaryType} {secondaryType}>
@@ -31,11 +40,7 @@
 		</div>
 	</div>
 	<div class="white rounded padded-sm flex-column gap">
-		<img
-			alt={`${species} official artwork`}
-			src={`${homeLink(`${id}${form === 'default' ? '' : `-${form}`}`)}`}
-			id={`${id}-big}`}
-		/>
+		<img alt={`${species} official artwork`} src={big} id={`${id}-big}`} />
 		{#if forms.length > 1}
 			<div class="row wrap padded-sm">
 				{#each forms.filter((f) => f !== form) as form, i}
