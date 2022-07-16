@@ -1,4 +1,4 @@
-export async function get({ params }: { params: { species: string } }) {
+export async function GET({ params }: { params: { species: string } }) {
 	const { species } = params;
 
 	return {
