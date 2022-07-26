@@ -27,7 +27,15 @@ WORKDIR /app
 COPY package.json package.json
 COPY bun.lockb bun.lockb
 RUN bun install
-RUN bun run build
+
+FROM node:18
+WORKDIR /app
+COPY --from=0 /app .
+COPY . .
+RUN npm run build
+
+FROM jarredsumner/bun:edge
+WORKDIR /app
 COPY . .
 EXPOSE 3000
 ENTRYPOINT ["bun", "./build/index.js"]
