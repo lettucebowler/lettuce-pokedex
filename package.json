@@ -25,6 +25,7 @@
 		"prettier": "^2.7.1",
 		"prettier-plugin-svelte": "^2.7.0",
 		"svelte": "^3.49.0",
+		"svelte-adapter-bun": "^0.3.1",
 		"svelte-check": "^2.8.0",
 		"svelte-lazy-image": "^0.5.1",
 		"svelte-preprocess": "^4.10.7",

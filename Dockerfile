@@ -4,13 +4,14 @@ WORKDIR /app
 COPY package.json pnpm-lock.yaml ./
 
 
-RUN npm install -g pnpm
-RUN pnpm install
-
+# RUN npm install -g pnpm
+# RUN pnpm install
+RUN curl -fsSL https://bun.sh/install | bash
+RUN bun install
 
 COPY . .
 
-RUN pnpm run build
+RUN bun run build
 
 FROM node:18-slim
 
@@ -19,4 +20,4 @@ COPY --from=0 /app .
 COPY . .
 
 EXPOSE 3000
-CMD ["node", "./build"]
+CMD ["bun", "./build/index.js"]

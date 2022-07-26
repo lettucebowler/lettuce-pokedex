@@ -1,4 +1,5 @@
-import adapter from '@sveltejs/adapter-vercel';
+// import adapter from '@sveltejs/adapter-vercel';
+import adapter from 'svelte-adapter-bun';
 import preprocess from 'svelte-preprocess';
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -9,8 +10,8 @@ const config = {
 
 	kit: {
 		adapter: adapter({
-			out: 'build',
-			edge: true
+			out: 'build'
+			// edge: true
 		}),
 		prerender: {
 			concurrency: 25,
