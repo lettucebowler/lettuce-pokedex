@@ -38,4 +38,4 @@ FROM jarredsumner/bun:edge
 WORKDIR /app
 COPY . .
 EXPOSE 3000
-ENTRYPOINT ["bun", "./build/index.js"]
+ENTRYPOINT ["bun", "/app/build/index.js"]
