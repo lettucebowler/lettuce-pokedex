@@ -36,7 +36,7 @@ RUN npm run build
 
 FROM jarredsumner/bun:edge
 WORKDIR /app
-COPY --from=0 /app .
+COPY --from=1 /app .
 COPY . .
 EXPOSE 3000
 CMD ["bun", "/app/build/index.js"]
