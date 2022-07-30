@@ -7,7 +7,7 @@
 <div class="width">
 	<div class="wrapper-medium">
 		<div class="wrapper-light grid">
-			<a title="link to home page" href="/">
+			<a sveltekit:prefetch title="link to home page" href="/">
 				<h1>Pokédex</h1>
 			</a>
 			<div class="search">
