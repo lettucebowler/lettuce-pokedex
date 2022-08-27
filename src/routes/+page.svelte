@@ -1,9 +1,8 @@
 <script lang="ts">
 	import DexCard from '$lib/components/DexCard.svelte';
 	import type { PokemonData } from '$lib/types/types';
-	import { onMount, onDestroy, createEventDispatcher } from 'svelte';
+	import { onMount, createEventDispatcher } from 'svelte';
 	import { browser } from '$app/env';
-	const dispatch = createEventDispatcher();
 	let footer;
 
 	onMount(() => {
@@ -36,9 +35,6 @@
 	};
 
 	$: allLoaded = pokemon.length >= 905;
-	$: console.log(allLoaded);
-	$: console.log(pokemon);
-	$: console.log(pokemon.length);
 </script>
 
 <svelte:head>
