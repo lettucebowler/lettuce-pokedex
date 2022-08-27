@@ -19,7 +19,7 @@
 			'h-[512px]': size === 512
 		})}
 	/>
-	<figcaption class="font-bold m-0 align-bottom">
+	<figcaption class="font-bold m-0 align-bottom text-sm">
 		{capitalize(form !== 'default' ? form : variant !== 'default' ? variant : species)}
 	</figcaption>
 </figure>
