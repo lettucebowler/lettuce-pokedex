@@ -7,7 +7,6 @@
 	import appleTouchIcon from '$lib/assets/apple-touch-icon.png';
 	import safariPinnedTabIcon from '$lib/assets/safari-pinned-tab.svg';
 	import SpeciesNav from '$lib/components/SpeciesNav.svelte';
-	import autoAnimate from '@formkit/auto-animate';
 	import { scale } from 'svelte/transition';
 	import TypeBorder from '$lib/components/TypeBorder.svelte';
 
