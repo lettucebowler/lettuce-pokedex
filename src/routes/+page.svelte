@@ -1,8 +1,44 @@
 <script lang="ts">
 	import DexCard from '$lib/components/DexCard.svelte';
+	import type { PokemonData } from '$lib/types/types';
+	import { onMount, onDestroy, createEventDispatcher } from 'svelte';
+	import { browser } from '$app/env';
+	const dispatch = createEventDispatcher();
+	let footer;
+
+	onMount(() => {
+		if (browser) {
+			const handleIntersect = (entries, observer) => {
+				entries.forEach(async (entry) => {
+					if (allLoaded) {
+						observer.unobserve(entry.target);
+					}
+					if (!allLoaded) {
+						const data = await getMorePokemon(pokemon.length + 1);
+						console.log(data);
+						pokemon = [...pokemon, ...data];
+					}
+				});
+			};
+			const options = { threshold: 1, rootMargin: '-100% 0% 100%' };
+			const observer = new IntersectionObserver(handleIntersect, options);
+			observer.observe(footer);
+		}
+	});
 
 	export let data: import('./$types').PageData;
-	$: pokemon = data.pokemon;
+	let pokemon: PokemonData[] = [...data.pokemon];
+
+	const getMorePokemon = async (start: number) => {
+		const rsp = await fetch(`/list?min=${start}&max=${start + 59}`);
+		const json = await rsp.json();
+		return json;
+	};
+
+	$: allLoaded = pokemon.length >= 905;
+	$: console.log(allLoaded);
+	$: console.log(pokemon);
+	$: console.log(pokemon.length);
 </script>
 
 <svelte:head>
@@ -15,3 +51,4 @@
 		<DexCard id={mon.id} species={mon.species} lazy={i > 29} types={mon.types} />
 	{/each}
 </div>
+<footer bind:this={footer} />

@@ -1,10 +1,9 @@
 import { getPokemonList } from '$lib/client/cloyster';
 
 export async function load() {
-	const documents = await getPokemonList(0, 905);
-	const enhanced = documents;
+	const documents = await getPokemonList(1, 60);
 
 	return {
-		pokemon: enhanced
+		pokemon: documents
 	};
 }
