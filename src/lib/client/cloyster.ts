@@ -21,9 +21,6 @@ export const getPokemonList = async (start = 1, end = 30) => {
 		body: JSON.stringify(body)
 	};
 
-	console.log(options);
-	console.log(dbUrl);
-
 	const rsp = await fetch(`${dbUrl}/action/find`, options);
 	const json = await rsp.json();
 	const sorted = json.documents.sort((a: { id: number }, b: { id: number }) => a.id - b.id);
