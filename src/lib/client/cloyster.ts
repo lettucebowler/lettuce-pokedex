@@ -53,7 +53,6 @@ export const insertOrUpdatePokemonDetail = async (pokemonData: PokemonData) => {
 };
 
 export const getPokemonDetail = async (species: string, variant: string) => {
-	console.log(dbUrl);
 	const body = {
 		collection: 'pokemon',
 		database: 'Pokemon',

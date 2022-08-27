@@ -1,9 +1,8 @@
 import { getNavEntries } from '$lib/util/pokemonData';
 
-/** @type {import('./$types').LayoutServerLoad} */
-export function load({ params }) {
+export const load: import('./$types').LayoutServerLoad = async ({ params }) => {
 	console.log(params.species);
 	return {
 		navigation: getNavEntries(params?.species || '')
 	};
-}
+};
