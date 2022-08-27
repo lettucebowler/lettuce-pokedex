@@ -23,6 +23,7 @@
 		'bg-flying-200': types[0] === 'flying',
 		'bg-ice-200': types[0] === 'ice',
 		'bg-fighting-200': types[0] === 'fighting',
+		'bg-default-200': types[0] === 'default',
 		'border-grass-100': types[1] === 'grass' || (types.length === 1 && types[0] === 'grass'),
 		'border-fire-100': types[1] === 'fire' || (types.length === 1 && types[0] === 'fire'),
 		'border-water-100': types[1] === 'water' || (types.length === 1 && types[0] === 'water'),
@@ -42,7 +43,8 @@
 		'border-flying-100': types[1] === 'flying' || (types.length === 1 && types[0] === 'flying'),
 		'border-ice-100': types[1] === 'ice' || (types.length === 1 && types[0] === 'ice'),
 		'border-fighting-100':
-			types[1] === 'fighting' || (types.length === 1 && types[0] === 'fighting')
+			types[1] === 'fighting' || (types.length === 1 && types[0] === 'fighting'),
+		'border-default-100': types[1] === 'default' || (types.length === 1 && types[0] === 'default')
 	})}
 >
 	<div
