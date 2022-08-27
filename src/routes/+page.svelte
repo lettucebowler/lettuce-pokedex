@@ -2,7 +2,7 @@
 	import DexCard from '$lib/components/DexCard.svelte';
 	import type { PokemonData } from '$lib/types/types';
 	import { onMount, createEventDispatcher } from 'svelte';
-	import { browser } from '$app/env';
+	import { browser } from '$app/environment';
 	let footer;
 
 	onMount(() => {
