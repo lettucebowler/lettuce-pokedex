@@ -1,40 +1,50 @@
 <script lang="ts">
 	import DexCard from '$lib/components/DexCard.svelte';
 	import type { PokemonData } from '$lib/types/types';
-	import { onMount, createEventDispatcher } from 'svelte';
-	import { browser } from '$app/environment';
-	let footer;
 
-	onMount(() => {
-		if (browser) {
-			const handleIntersect = (entries, observer) => {
-				entries.forEach(async (entry) => {
-					if (allLoaded) {
-						observer.unobserve(entry.target);
-					}
-					if (!allLoaded) {
-						const data = await getMorePokemon(pokemon.length + 1);
-						console.log(data);
-						pokemon = [...pokemon, ...data];
-					}
-				});
-			};
-			const options = { threshold: 1, rootMargin: '-100% 0% 100%' };
-			const observer = new IntersectionObserver(handleIntersect, options);
-			observer.observe(footer);
+	import { inview } from 'svelte-inview/dist/index';
+
+	let hasMore = true;
+
+	// onMount(() => {
+	// 	if (browser) {
+	// 		const handleIntersect = (entries, observer) => {
+	// 			entries.forEach(async (entry) => {
+	// 				if (allLoaded) {
+	// 					observer.unobserve(entry.target);
+	// 				}
+	// 				if (!allLoaded) {
+	// 					const data = await getMorePokemon(pokemon.length + 1);
+	// 					console.log(data);
+	// 					pokemon = [...pokemon, ...data];
+	// 				}
+	// 			});
+	// 		};
+	// 		const options = { threshold: 1, rootMargin: '-100% 0% 100%' };
+	// 		const observer = new IntersectionObserver(handleIntersect, options);
+	// 		observer.observe(footer);
+	// 	}
+	// });
+
+	const handleChange = async (e) => {
+		console.log('bleh');
+		if (e.detail.inView && hasMore) {
+			const morePokemon = await getMorePokemon(pokemon.length);
+			pokemon = [...pokemon, ...morePokemon];
+			if (pokemon.length === 905) {
+				hasMore = false;
+			}
 		}
-	});
+	};
 
 	export let data: import('./$types').PageData;
 	let pokemon: PokemonData[] = [...data.pokemon];
 
 	const getMorePokemon = async (start: number) => {
-		const rsp = await fetch(`/list?min=${start}&max=${start + 59}`);
+		const rsp = await fetch(`/list?min=${start + 1}&max=${start + 60}`);
 		const json = await rsp.json();
 		return json;
 	};
-
-	$: allLoaded = pokemon.length >= 905;
 </script>
 
 <svelte:head>
@@ -47,4 +57,12 @@
 		<DexCard id={mon.id} species={mon.species} lazy={i > 29} types={mon.types} />
 	{/each}
 </div>
-<footer bind:this={footer} />
+{#if hasMore}
+	<div
+		class="text-lg font-bold p-2 text-center"
+		use:inview={{ rootMargin: '250px' }}
+		on:change={handleChange}
+	>
+		Fetching more Pokemon...
+	</div>
+{/if}
