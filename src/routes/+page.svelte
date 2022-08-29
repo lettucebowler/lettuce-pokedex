@@ -26,7 +26,7 @@
 	const handleChange = async () => {
 		if (hasMore) {
 			end += 12;
-			if (end >= 904) {
+			if (end >= filteredMonsters.length) {
 				hasMore = false;
 			}
 		}
@@ -64,9 +64,9 @@
 {#if hasMore}
 	<div
 		class="text-lg font-bold p-2 text-center"
-		use:inview={{ rootMargin: '100%' }}
+		use:inview={{ rootMargin: '25%' }}
 		on:change={handleChange}
 	>
-		{filteredMonsters.length}
+		Fetching more pokemon...
 	</div>
 {/if}

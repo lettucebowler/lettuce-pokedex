@@ -5,7 +5,7 @@
 
 <div
 	class={classnames(
-		'text-white w-full rounded text-center p-1 text-xs sm:text-sm md:text-md lg:text-lg font-medium',
+		'text-white w-full rounded text-center p-1 text-xs sm:text-sm md:text-base lg:text-base font-medium',
 		{
 			'bg-grass-200': type === 'grass',
 			'bg-fire-200': type === 'fire',
