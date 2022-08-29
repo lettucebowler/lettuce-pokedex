@@ -19,7 +19,7 @@ const config = {
 		prerender: {
 			concurrency: 25,
 			onError: 'continue',
-			default: false
+			default: true
 		}
 	}
 };
