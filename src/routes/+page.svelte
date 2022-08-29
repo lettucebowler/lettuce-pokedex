@@ -12,8 +12,6 @@
 	let end = 59;
 	let filterName = '';
 
-	$: console.log(end);
-
 	$: filteredMonsters = pokemon.filter((mon) => {
 		return mon.species.includes(filterName);
 	});
@@ -27,7 +25,7 @@
 
 	const handleChange = async () => {
 		if (hasMore) {
-			end += 60;
+			end += 12;
 			if (end >= 904) {
 				hasMore = false;
 			}
@@ -66,7 +64,7 @@
 {#if hasMore}
 	<div
 		class="text-lg font-bold p-2 text-center"
-		use:inview={{ rootMargin: '50%' }}
+		use:inview={{ rootMargin: '100%' }}
 		on:change={handleChange}
 	>
 		{filteredMonsters.length}
