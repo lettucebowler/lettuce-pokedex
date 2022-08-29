@@ -28,7 +28,7 @@
 			class={classnames('flex flex-col text-center w-full justify-end box-border gap-1.5')}
 		>
 			<figcaption
-				class="p-1 text-center font-extrabold font-sans text-lg font-sans p-1 rounded-lg bg-white"
+				class="p-1 text-center font-extrabold font-sans text-sm sm:text-base md:text-lg lg:text-xl font-sans p-1 rounded-lg bg-white"
 			>
 				{capitalize(species)}
 			</figcaption>

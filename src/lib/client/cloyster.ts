@@ -8,6 +8,12 @@ export const getPokemonList = async (start = 1, end = 30) => {
 		dataSource: 'Cloyster',
 		filter: {
 			id: { $gte: start, $lte: end }
+		},
+		projection: {
+			species: 1,
+			types: 1,
+			id: 1,
+			_id: 0
 		}
 	};
 	const options = {

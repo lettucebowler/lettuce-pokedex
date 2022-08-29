@@ -20,7 +20,7 @@
 		src={`${homeLink(`${id}${form === 'default' ? '' : `-${form}`}`)}`}
 		id={`${id}-big}`}
 		loading={lazy ? 'lazy' : 'eager'}
-		class={classnames('m-auto h-full w-full aspect-square', {
+		class={classnames('m-auto h-full w-full aspect-square object-contain', {
 			'max-w-[128px]': size === 128,
 			'max-w-[64px]': size === 64,
 			'max-w-[512px]': size === 512
