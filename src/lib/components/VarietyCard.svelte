@@ -9,7 +9,7 @@
 	<h3 class="font-bold text-xl">Variants</h3>
 	<div class="flex flex-wrap justify-between gap-1">
 		{#each varieties as variant}
-			<div class="flex-[1_1_80px] flex justify-center">
+			<div class="flex-[1_1_80px] flex justify-start h-full">
 				<PokemonLink
 					{species}
 					variant={variant.is_default
