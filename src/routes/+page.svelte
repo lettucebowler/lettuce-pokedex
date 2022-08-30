@@ -20,18 +20,16 @@
 		if (filterName === '') {
 			end = 59;
 			start = 0;
-			hasMore = true;
 		}
 	}
 
 	const handleChange = async () => {
 		if (hasMore) {
 			end += 12;
-			if (end + 1 >= pokemon.length) {
-				hasMore = false;
-			}
 		}
 	};
+
+	$: hasMore = filterName === '' ? end <= pokemon.length : end <= filteredMonsters.length;
 </script>
 
 <svelte:head>
@@ -45,6 +43,7 @@
 			class="m-auto border-2 border-black rounded p-1 text-lg"
 			type="text"
 			bind:value={filterName}
+			autocapitalize="none"
 			placeholder="pokemon"
 		/>
 	</div>
