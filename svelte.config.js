@@ -13,13 +13,13 @@ const config = {
 
 	kit: {
 		adapter: adapter({
-			out: 'build'
-			// edge: true
+			out: 'build',
+			edge: true
 		}),
 		prerender: {
 			concurrency: 25,
 			onError: 'continue',
-			default: true
+			default: false
 		}
 	}
 };
