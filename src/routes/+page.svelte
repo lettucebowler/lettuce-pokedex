@@ -12,30 +12,25 @@
 	let end = 59;
 	let filterName = '';
 
-	$: filteredMonsters = pokemon.filter((mon) => {
-		return mon.species.includes(filterName);
+	$: filteredMonsters = pokemon.filter((mon, i) => {
+		return mon.species.includes(filterName) && i >= start && i <= end;
 	});
 
 	$: {
 		if (filterName === '') {
 			end = 59;
 			start = 0;
+			hasMore = true;
 		}
 	}
 
 	const handleChange = async () => {
 		if (hasMore) {
 			end += 12;
-			if (end >= filteredMonsters.length) {
+			if (end + 1 >= pokemon.length) {
 				hasMore = false;
 			}
 		}
-	};
-
-	const getMorePokemon = async (start: number) => {
-		const rsp = await fetch(`/list?min=${start + 1}&max=${start + 60}`);
-		const json = await rsp.json();
-		return json;
 	};
 </script>
 
@@ -55,9 +50,7 @@
 	</div>
 	<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
 		{#each filteredMonsters as mon, i}
-			{#if i >= start && i <= end}
-				<DexCard id={mon.id} species={mon.species} lazy={i > 29} types={mon.types} />
-			{/if}
+			<DexCard id={mon.id} species={mon.species} lazy={i > 29} types={mon.types} />
 		{/each}
 	</div>
 </div>
