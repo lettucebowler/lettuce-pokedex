@@ -11,15 +11,12 @@
 
 <div class="grid grid-cols-12 gap-2">
 	<div class="col-span-12 order-last sm:order-first sm:col-span-7 flex flex-col gap-2">
-		<TypeBorder types={pokemonData.types}>
-			<div class="flex flex-col gap-2">
-				<InfoCard
-					description={pokemonData.description}
-					height={pokemonData.biology.height}
-					weight={pokemonData.biology.weight}
-				/>
-			</div>
-		</TypeBorder>
+		<InfoCard
+			description={pokemonData.description}
+			height={pokemonData.biology.height}
+			weight={pokemonData.biology.weight}
+			types={pokemonData.types}
+		/>
 		{#if pokemonData?.evolutionChain?.evolves_to.length}
 			<TypeBorder types={pokemonData.types}>
 				<EvolutionCard evolutionChain={pokemonData.evolutionChain} />

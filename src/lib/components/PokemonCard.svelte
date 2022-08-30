@@ -1,6 +1,7 @@
 <script lang="ts">
 	import VarietyCard from './VarietyCard.svelte';
 	import { leftPad, capitalize } from '$lib/util/helpers';
+	import autoAnimate from '@formkit/auto-animate';
 
 	import TypeBorder from './TypeBorder.svelte';
 
@@ -18,7 +19,7 @@
 </script>
 
 <TypeBorder {types}>
-	<div class="flex flex-col gap-2">
+	<div class="flex flex-col gap-2" use:autoAnimate>
 		<div class="grid grid-cols-3 w-full gap-2">
 			<div
 				class="rounded-lg bg-white w-full text-center flex flex-col justify-center p-1 col-span-2"
@@ -41,5 +42,5 @@
 		{#if varieties.length > 1}
 			<VarietyCard {varieties} {species} />
 		{/if}
-	</div></TypeBorder
->
+	</div>
+</TypeBorder>
