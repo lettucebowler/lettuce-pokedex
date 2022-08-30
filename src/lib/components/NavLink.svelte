@@ -12,7 +12,7 @@
 <a
 	href={`/species/${name}/variant/default/form/default`}
 	class="grid grid-cols-1 sm:grid-cols-2 place-items-center hover:backdrop-filter hover:backdrop-brightness-90 rounded-lg p-1"
-	sveltekit:prefetch
+	data-sveltekit-prefetch
 >
 	{#if right}
 		<svg

@@ -22,7 +22,7 @@
 	>
 		<div class="bg-default-300 rounded-b-2xl w-full">
 			<div class="flex flex-wrap w-full justify-around">
-				<a sveltekit:prefetch title="link to home page" href="/">
+				<a data-sveltekit-prefetch title="link to home page" href="/">
 					<h1 class="text-center font-bold text-2xl p-2">Pokédex</h1>
 				</a>
 			</div>
