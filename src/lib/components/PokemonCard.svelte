@@ -1,7 +1,6 @@
 <script lang="ts">
 	import VarietyCard from './VarietyCard.svelte';
 	import { leftPad, capitalize } from '$lib/util/helpers';
-	import autoAnimate from '@formkit/auto-animate';
 
 	import TypeBorder from './TypeBorder.svelte';
 
@@ -19,28 +18,33 @@
 </script>
 
 <TypeBorder {types}>
-	<div class="flex flex-col gap-2" use:autoAnimate>
-		<div class="grid grid-cols-3 w-full gap-2">
-			<div
-				class="rounded-lg bg-white w-full text-center flex flex-col justify-center p-1 col-span-2"
-			>
-				<h2 class="font-bold text-lg">{capitalize(species)}</h2>
-				<span class="text-md">{genus}</span>
-			</div>
-			<div
-				class="rounded-lg bg-white w-full text-center text-lg flex flex-col justify-center font-bold p-1 flex-[1_1_auto] flex"
-			>
-				{`#${leftPad(3, dexNum)}`}
-			</div>
+	<div class="grid grid-cols-3 gap-2">
+		<div class="rounded-lg bg-white text-center p-1 col-span-2 grid">
+			<h2 class="font-bold text-lg">{capitalize(species)}</h2>
+			<span class="text-md">{genus}</span>
 		</div>
-		<Portrait {id} {species} {form} {types} />
+		<div
+			class="rounded-lg bg-white w-full text-center text-lg font-bold p-1 grid place-items-center"
+		>
+			{`#${leftPad(3, dexNum)}`}
+		</div>
+		<div class="grid col-span-3">
+			<Portrait {id} {species} {form} {types} />
+		</div>
+	</div>
+	<div class="col-span-3">
+		{#each [1] as _ (1)}
+			{#if forms.length > 1}
+				<div class="h-2" />
+				<div class="grid col-span-3">
+					<FormCard {species} {id} {forms} />
+				</div>
+			{/if}
 
-		{#if forms.length > 1}
-			<FormCard {species} {id} {forms} />
-		{/if}
-
-		{#if varieties.length > 1}
-			<VarietyCard {varieties} {species} />
-		{/if}
+			{#if varieties.length > 1}
+				<div class="h-2" />
+				<div class="grid col-span-3"><VarietyCard {varieties} {species} /></div>
+			{/if}
+		{/each}
 	</div>
 </TypeBorder>

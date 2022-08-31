@@ -20,15 +20,17 @@
 		src={`${homeLink(`${id}${form === 'default' ? '' : `-${form}`}`)}`}
 		id={`${id}-big}`}
 		loading={lazy ? 'lazy' : 'eager'}
-		class={classnames('m-auto w-full aspect-square', {
-			'max-w-[128px]': size === 128,
-			'max-w-[64px]': size === 64,
-			'max-w-[512px]': size === 512
-		})}
 	/>
-	<div class="flex flex-row gap-1 p-1">
+	<div class="grid grid-cols-2 gap-1 p-1">
 		{#each types as type}
-			<Type {type} />
+			<div
+				class={classnames('grid w-full place-items-center', {
+					'col-span-1': types.length > 1,
+					'col-span-2': types.length === 1
+				})}
+			>
+				<Type {type} />
+			</div>
 		{/each}
 	</div>
 </div>

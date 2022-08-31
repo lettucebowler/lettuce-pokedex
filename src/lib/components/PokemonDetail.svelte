@@ -10,7 +10,7 @@
 </script>
 
 <div class="grid grid-cols-12 gap-2">
-	<div class="col-span-12 order-last sm:order-first sm:col-span-7 flex flex-col gap-2">
+	<div class="col-span-12 order-last sm:order-first sm:col-span-7">
 		<InfoCard
 			description={pokemonData.description}
 			height={pokemonData.biology.height}
@@ -18,12 +18,12 @@
 			types={pokemonData.types}
 		/>
 		{#if pokemonData?.evolutionChain?.evolves_to.length}
+			<div class="h-2" />
 			<TypeBorder types={pokemonData.types}>
 				<EvolutionCard evolutionChain={pokemonData.evolutionChain} />
 			</TypeBorder>
 		{/if}
 	</div>
-
 	<div class="col-span-12 sm:col-span-5">
 		<PokemonCard
 			species={pokemonData.species}

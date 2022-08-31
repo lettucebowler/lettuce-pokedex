@@ -18,8 +18,7 @@ const config = {
 		}),
 		prerender: {
 			concurrency: 25,
-			onError: 'continue',
-			default: true
+			onError: 'continue'
 		}
 	}
 };
