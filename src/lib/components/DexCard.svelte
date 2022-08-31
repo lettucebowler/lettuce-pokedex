@@ -20,6 +20,7 @@
 	class="grid place-items-center box-border cursor-pointer w-full hover:brightness-90"
 	alt={`Link to ${species} detail page`}
 	href={`/species/${species}/variant/default/form/default`}
+	data-sveltekit-prefetch
 >
 	<TypeBorder {types}>
 		<figure
