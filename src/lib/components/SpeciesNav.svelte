@@ -6,7 +6,7 @@
 </script>
 
 <nav class="grid grid-cols-[repeat(3,_1fr)] w-full gap-2">
-	{#each [navData.previous, navData.current, navData.next] as navItem, i (navItem.name)}
+	{#each [navData.previous, navData.current, navData.next] as navItem, i (i)}
 		<NavLink name={navItem.name} id={navItem.id} left={i === 0} right={i === 2} />
 	{/each}
 </nav>
