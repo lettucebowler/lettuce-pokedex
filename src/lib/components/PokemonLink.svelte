@@ -17,7 +17,7 @@
 	class="grid place-items-center w-full h-full"
 	data-sveltekit-prefetch
 >
-	<div class="hover:backdrop-filter hover:backdrop-brightness-90 p-2 rounded-lg w-full">
+	<div class="hover:backdrop-filter hover:backdrop-brightness-90 p-2 rounded-lg w-full h-full">
 		<PokemonFigure {species} {variant} {form} {size} {imageUrl} />
 	</div>
 </a>
