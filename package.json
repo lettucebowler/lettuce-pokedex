@@ -20,23 +20,23 @@
 		"@tanstack/svelte-virtual": "3.0.0-beta.18",
 		"@typescript-eslint/eslint-plugin": "^5.36.1",
 		"@typescript-eslint/parser": "^5.36.1",
+		"autoprefixer": "^10.4.8",
 		"classnames": "^2.3.1",
 		"eslint": "^8.23.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte3": "^4.0.0",
+		"postcss": "^8.4.16",
 		"prettier": "^2.7.1",
 		"prettier-plugin-svelte": "^2.7.0",
-		"svelte": "^3.49.0",
+		"svelte": "^3.50.0",
 		"svelte-check": "^2.9.0",
 		"svelte-inview": "^3.0.1",
 		"svelte-lazy-image": "^0.5.1",
 		"svelte-preprocess": "^4.10.7",
+		"tailwindcss": "^3.1.8",
 		"tslib": "^2.4.0",
 		"typescript": "~4.7.4",
-		"vite": "^3.1.0-beta.1",
-		"autoprefixer": "^10.4.8",
-		"postcss": "^8.4.16",
-		"tailwindcss": "^3.1.8"
+		"vite": "^3.1.0-beta.2"
 	},
 	"type": "module"
 }

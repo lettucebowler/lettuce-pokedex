@@ -12,9 +12,11 @@
 	let end = 59;
 	let filterName = '';
 
-	$: filteredMonsters = pokemon.filter((mon, i) => {
-		return mon.species.includes(filterName) && i >= start && i <= end;
-	});
+	$: filteredMonsters = pokemon
+		.filter((mon, i) => {
+			return mon.species.includes(filterName);
+		})
+		.filter((_, i) => i >= start && i <= end);
 
 	$: {
 		if (filterName === '') {
