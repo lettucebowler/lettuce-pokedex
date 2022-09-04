@@ -29,9 +29,7 @@
 			</div>
 		</div>
 	</div>
-	<div use:autoAnimate>
-		<slot />
-	</div>
+	<slot />
 </div>
 
 <style>
