@@ -9,7 +9,7 @@
 	export let form = 'default';
 </script>
 
-<figure class="flex flex-col justify-end flex-[1_1_80px] gap-1">
+<figure class="flex flex-[1_1_80px] flex-col justify-end gap-1">
 	<img
 		src={imageUrl}
 		alt={species}
@@ -19,7 +19,7 @@
 			'h-[512px]': size === 512
 		})}
 	/>
-	<figcaption class="font-bold m-0 align-bottom text-sm text-center">
+	<figcaption class="m-0 text-center align-bottom text-sm font-bold">
 		{capitalize(form !== 'default' ? form : variant !== 'default' ? variant : species)}
 	</figcaption>
 </figure>

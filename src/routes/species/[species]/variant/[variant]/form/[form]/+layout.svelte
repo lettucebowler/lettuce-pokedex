@@ -4,7 +4,7 @@
 	export let data: import('./$types').LayoutData;
 </script>
 
-<div class="w-full max-w-[1200px] m-auto flex flex-col gap-2">
+<div class="m-auto flex w-full max-w-[1200px] flex-col gap-2">
 	<TypeBorder types={['default']}>
 		{#if data.navigation}
 			<SpeciesNav navData={data.navigation} />

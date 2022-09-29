@@ -15,16 +15,16 @@
 </svelte:head>
 
 <div
-	class="w-full max-w-[1200px] m-auto flex flex-col gap-2 pb-1 min-w-[320px]"
+	class="m-auto flex w-full min-w-[320px] max-w-[1200px] flex-col gap-2 pb-1"
 	data-sveltekit-prefetch
 >
 	<div
-		class="border-b-2 border-l-2 border-r-2 border-default-100 pb-1 pl-1 pr-1 bg-default-200 rounded-b-[22px] w-full"
+		class="w-full rounded-b-[22px] border-b-2 border-l-2 border-r-2 border-default-100 bg-default-200 pb-1 pl-1 pr-1"
 	>
-		<div class="bg-default-300 rounded-b-2xl w-full">
-			<div class="flex flex-wrap w-full justify-around">
+		<div class="w-full rounded-b-2xl bg-default-300">
+			<div class="flex w-full flex-wrap justify-around">
 				<a title="link to home page" href="/" data-sveltekit-prefetch>
-					<h1 class="text-center font-bold text-2xl p-2">Pokédex</h1>
+					<h1 class="p-2 text-center text-2xl font-bold">Pokédex</h1>
 				</a>
 			</div>
 		</div>

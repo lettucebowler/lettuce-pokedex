@@ -14,7 +14,7 @@
 		`${variables.imageHost || ''}/home/${id}${size !== 512 ? `-${size}` : ''}.webp`;
 </script>
 
-<div class="w-full bg-white rounded-lg">
+<div class="w-full rounded-lg bg-white">
 	<img
 		alt={`${species} official artwork`}
 		src={`${homeLink(`${id}${form === 'default' ? '' : `-${form}`}`)}`}

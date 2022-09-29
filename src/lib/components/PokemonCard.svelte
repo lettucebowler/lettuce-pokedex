@@ -19,16 +19,16 @@
 
 <TypeBorder {types}>
 	<div class="grid grid-cols-3 gap-2">
-		<div class="rounded-lg bg-white text-center p-1 col-span-2 grid">
-			<h2 class="font-bold text-lg">{capitalize(species)}</h2>
+		<div class="col-span-2 grid rounded-lg bg-white p-1 text-center">
+			<h2 class="text-lg font-bold">{capitalize(species)}</h2>
 			<span class="text-md">{genus}</span>
 		</div>
 		<div
-			class="rounded-lg bg-white w-full text-center text-lg font-bold p-1 grid place-items-center"
+			class="grid w-full place-items-center rounded-lg bg-white p-1 text-center text-lg font-bold"
 		>
 			{`#${leftPad(3, dexNum)}`}
 		</div>
-		<div class="grid col-span-3">
+		<div class="col-span-3 grid">
 			<Portrait {id} {species} {form} {types} />
 		</div>
 	</div>
@@ -36,14 +36,14 @@
 		{#each [1] as _ (1)}
 			{#if forms.length > 1}
 				<div class="h-2" />
-				<div class="grid col-span-3">
+				<div class="col-span-3 grid">
 					<FormCard {species} {id} {forms} />
 				</div>
 			{/if}
 
 			{#if varieties.length > 1}
 				<div class="h-2" />
-				<div class="grid col-span-3"><VarietyCard {varieties} {species} /></div>
+				<div class="col-span-3 grid"><VarietyCard {varieties} {species} /></div>
 			{/if}
 		{/each}
 	</div>

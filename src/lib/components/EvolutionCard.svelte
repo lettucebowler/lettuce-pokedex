@@ -3,7 +3,7 @@
 	export let evolutionChain: any;
 </script>
 
-<div class="bg-white rounded-lg p-2 text-center">
-	<h2 class="text-lg font-bold m-2">Evolution Chart</h2>
+<div class="rounded-lg bg-white p-2 text-center">
+	<h2 class="m-2 text-lg font-bold">Evolution Chart</h2>
 	<EvolutionChart {evolutionChain} />
 </div>

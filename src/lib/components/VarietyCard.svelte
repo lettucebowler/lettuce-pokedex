@@ -6,8 +6,8 @@
 	export let species: string;
 </script>
 
-<div class="bg-white text-center rounded-lg p-2 flex flex-col">
-	<h3 class="font-bold text-xl">Variants</h3>
+<div class="flex flex-col rounded-lg bg-white p-2 text-center">
+	<h3 class="text-xl font-bold">Variants</h3>
 	<div
 		class={classnames('grid gap-1', {
 			'grid-cols-2': varieties.length === 2,

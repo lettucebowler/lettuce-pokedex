@@ -9,12 +9,12 @@
 </script>
 
 <TypeBorder {types}>
-	<div class="grid gap-2 place-items-center">
-		<div class="text-center bg-white rounded-lg p-2">
+	<div class="grid place-items-center gap-2">
+		<div class="rounded-lg bg-white p-2 text-center">
 			<h2 class="text-lg font-bold">Description</h2>
 			<p class="text-lg">{description}</p>
 		</div>
-		<div class="text-center w-full flex flex-col gap-2 bg-white rounded-lg p-2">
+		<div class="flex w-full flex-col gap-2 rounded-lg bg-white p-2 text-center">
 			<h2 class="text-lg font-bold">Biology</h2>
 			<div class="grid grid-cols-2 place-items-center">
 				<div class="flex flex-col gap-1">

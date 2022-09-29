@@ -10,7 +10,7 @@
 </script>
 
 <div class="grid grid-cols-12 gap-2">
-	<div class="col-span-12 order-last sm:order-first sm:col-span-7">
+	<div class="order-last col-span-12 sm:order-first sm:col-span-7">
 		<InfoCard
 			description={pokemonData.description}
 			height={pokemonData.biology.height}

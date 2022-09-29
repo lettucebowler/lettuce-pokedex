@@ -11,7 +11,7 @@
 
 <a
 	href={`/species/${name}/variant/default/form/default`}
-	class="grid grid-cols-1 sm:grid-cols-2 place-items-center hover:backdrop-filter hover:backdrop-brightness-90 rounded-lg p-1"
+	class="grid grid-cols-1 place-items-center rounded-lg p-1 hover:backdrop-brightness-90 hover:backdrop-filter sm:grid-cols-2"
 	data-sveltekit-prefetch
 >
 	{#if right}
@@ -19,7 +19,7 @@
 			xmlns="http://www.w3.org/2000/svg"
 			viewBox="0 0 24 24"
 			fill="currentColor"
-			class="w-6 h-6 mt-auto mb-auto"
+			class="mt-auto mb-auto h-6 w-6"
 		>
 			<path
 				fill-rule="evenodd"
@@ -42,7 +42,7 @@
 			xmlns="http://www.w3.org/2000/svg"
 			viewBox="0 0 24 24"
 			fill="currentColor"
-			class="w-6 h-6 mt-auto mb-auto flex flex-auto"
+			class="mt-auto mb-auto flex h-6 w-6 flex-auto"
 		>
 			<path
 				fill-rule="evenodd"

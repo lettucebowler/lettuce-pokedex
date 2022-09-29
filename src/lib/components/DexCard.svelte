@@ -17,7 +17,7 @@
 </script>
 
 <a
-	class="grid place-items-center box-border cursor-pointer w-full hover:brightness-90"
+	class="box-border grid w-full cursor-pointer place-items-center hover:brightness-90"
 	alt={`Link to ${species} detail page`}
 	href={`/species/${species}/variant/default/form/default`}
 	data-sveltekit-prefetch
@@ -28,7 +28,7 @@
 			class={classnames('flex flex-col text-center w-full justify-end box-border gap-1.5')}
 		>
 			<figcaption
-				class="p-1 text-center font-extrabold font-sans text-sm sm:text-base md:text-lg lg:text-xl font-sans p-1 rounded-lg bg-white"
+				class="rounded-lg bg-white p-1 p-1 text-center font-sans font-sans text-sm font-extrabold sm:text-base md:text-lg lg:text-xl"
 			>
 				{capitalize(species)}
 			</figcaption>

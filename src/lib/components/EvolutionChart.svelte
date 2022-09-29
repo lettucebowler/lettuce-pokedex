@@ -3,8 +3,8 @@
 	export let evolutionChain: any;
 </script>
 
-<div class="flex justify-center h-full gap-2">
-	<div class="flex flex-col justify-center h-full mt-auto mb-auto">
+<div class="flex h-full justify-center gap-2">
+	<div class="mt-auto mb-auto flex h-full flex-col justify-center">
 		<PokemonLink species={evolutionChain.species} id={evolutionChain.id} size={128} />
 	</div>
 
@@ -13,7 +13,7 @@
 			xmlns="http://www.w3.org/2000/svg"
 			viewBox="0 0 24 24"
 			fill="currentColor"
-			class="w-6 h-6 mt-auto mb-auto"
+			class="mt-auto mb-auto h-6 w-6"
 		>
 			<path
 				fill-rule="evenodd"
@@ -30,7 +30,7 @@
 						xmlns="http://www.w3.org/2000/svg"
 						viewBox="0 0 24 24"
 						fill="currentColor"
-						class="w-6 h-6 mt-auto m-auto"
+						class="m-auto mt-auto h-6 w-6"
 					>
 						<path
 							fill-rule="evenodd"

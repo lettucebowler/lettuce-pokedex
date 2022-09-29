@@ -39,17 +39,17 @@
 	<title>LettucePokedex</title>
 </svelte:head>
 <div class="flex flex-col gap-4">
-	<h2 class="text-2xl text-center font-bold">Pokemon by National Pokedex order</h2>
-	<div class="grid place-items-center w-full">
+	<h2 class="text-center text-2xl font-bold">Pokemon by National Pokedex order</h2>
+	<div class="grid w-full place-items-center">
 		<input
-			class="m-auto border-2 border-black rounded p-1 text-lg"
+			class="border-black m-auto rounded border-2 p-1 text-lg"
 			type="text"
 			bind:value={filterName}
 			autocapitalize="none"
 			placeholder="pokemon"
 		/>
 	</div>
-	<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
+	<div class="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
 		{#each filteredMonsters as mon, i}
 			<DexCard id={mon.id} species={mon.species} lazy={i > 29} types={mon.types} />
 		{/each}
@@ -57,7 +57,7 @@
 </div>
 {#if hasMore}
 	<div
-		class="text-lg font-bold p-2 text-center"
+		class="p-2 text-center text-lg font-bold"
 		use:inview={{ rootMargin: '25%' }}
 		on:change={handleChange}
 	>
