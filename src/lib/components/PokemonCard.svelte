@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { slide } from 'svelte/transition';
+
 	import VarietyCard from './VarietyCard.svelte';
 	import { leftPad, capitalize } from '$lib/util/helpers';
 
@@ -32,19 +34,21 @@
 			<Portrait {id} {species} {form} {types} />
 		</div>
 	</div>
-	<div class="col-span-3">
-		{#each [1] as _ (1)}
-			{#if forms.length > 1}
-				<div class="h-2" />
-				<div class="col-span-3 grid">
-					<FormCard {species} {id} {forms} />
-				</div>
-			{/if}
+	{#if forms.length > 1 || varieties.length > 1}
+		<div class="col-span-3" transition:slide={{ duration: 150 }}>
+			{#each [1] as _ (1)}
+				{#if forms.length > 1}
+					<div class="h-2" />
+					<div class="col-span-3 grid">
+						<FormCard {species} {id} {forms} />
+					</div>
+				{/if}
 
-			{#if varieties.length > 1}
-				<div class="h-2" />
-				<div class="col-span-3 grid"><VarietyCard {varieties} {species} /></div>
-			{/if}
-		{/each}
-	</div>
+				{#if varieties.length > 1}
+					<div class="h-2" />
+					<div class="col-span-3 grid"><VarietyCard {varieties} {species} /></div>
+				{/if}
+			{/each}
+		</div>
+	{/if}
 </TypeBorder>
