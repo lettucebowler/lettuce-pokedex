@@ -10,7 +10,7 @@
 
 <TypeBorder {types}>
 	<div class="grid place-items-center gap-2">
-		<div class="rounded-lg bg-white p-2 text-center">
+		<div class="w-full rounded-lg bg-white p-2 text-center">
 			<h2 class="text-lg font-bold">Description</h2>
 			<p class="text-lg">{description}</p>
 		</div>

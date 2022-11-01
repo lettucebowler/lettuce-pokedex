@@ -1,5 +1,6 @@
 import type { PokemonData } from '$lib/types/types';
 import { DB_URL, DB_API_KEY } from '$env/static/private';
+import PokemonDetail from '$lib/components/PokemonDetail.svelte';
 
 export const getPokemonList = async (start = 1, end = 30) => {
 	const body = {
