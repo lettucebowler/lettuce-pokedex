@@ -1,6 +1,5 @@
 <script lang="ts">
 	import PokemonLink from '$lib/components/PokemonLink.svelte';
-	import classnames from 'classnames';
 
 	export let varieties: any[];
 	export let species: string;
@@ -9,11 +8,10 @@
 <div class="flex flex-col rounded-lg bg-white p-2 text-center">
 	<h3 class="text-xl font-bold">Variants</h3>
 	<div
-		class={classnames('grid gap-1', {
-			'grid-cols-2': varieties.length === 2,
-			'grid-cols-3': varieties.length === 3,
-			'grid-cols-4': varieties.length > 3
-		})}
+		class="grid gap-1"
+		class:grid-cols-2={varieties.length === 2}
+		class:grid-cols-3={varieties.length === 3}
+		class:grid-cols-4={varieties.length > 3}
 	>
 		{#each varieties as variant}
 			<div class="h-full flex-[1_1_80px] justify-center">

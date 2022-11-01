@@ -4,7 +4,6 @@
 	import bigFavicon from '$lib/assets/favicon-32x32.png';
 	import appleTouchIcon from '$lib/assets/apple-touch-icon.png';
 	import safariPinnedTabIcon from '$lib/assets/safari-pinned-tab.svg';
-	import autoAnimate from '@formkit/auto-animate';
 </script>
 
 <svelte:head>

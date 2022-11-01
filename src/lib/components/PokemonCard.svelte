@@ -35,7 +35,7 @@
 		</div>
 	</div>
 	{#if forms.length > 1 || varieties.length > 1}
-		<div class="col-span-3" transition:slide={{ duration: 150 }}>
+		<div class="col-span-3">
 			{#each [1] as _ (1)}
 				{#if forms.length > 1}
 					<div class="h-2" />
