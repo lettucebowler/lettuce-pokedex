@@ -10,7 +10,7 @@
 	let pokemon: PokemonData[] = [...data.pokemon];
 
 	let start = 0;
-	let end = 119;
+	let end = 59;
 	let filterName = '';
 
 	$: filteredMonsters = pokemon
@@ -28,7 +28,7 @@
 
 	const handleChange = async () => {
 		if (hasMore) {
-			end += 12;
+			end += 60;
 		}
 	};
 

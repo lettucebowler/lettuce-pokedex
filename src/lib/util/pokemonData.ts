@@ -107,7 +107,6 @@ const getPokemon = async (species: string, variant: string) => {
 	const variantUrl = `https://pokeapi.co/api/v1/pokemon/${species}${
 		realVariant !== 'default' ? `-${realVariant}` : ''
 	}`;
-	console.log(variantUrl);
 	const pokemonResponse = await fetch(variantUrl);
 	const pokemon = await pokemonResponse.json();
 	const { forms, abilities, height, weight, types, id } = pokemon;
