@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { variables } from '$lib/variables';
+	import { PUBLIC_IMAGE_HOST } from '$env/static/public';
 	import PokemonFigure from './PokemonFigure.svelte';
 	export let species: string = 'bulbasaur';
 	export let variant = 'default';
@@ -7,7 +7,7 @@
 	export let id = 1;
 	export let size = 64;
 
-	$: imageUrl = `${variables.imageHost}/home/${
+	$: imageUrl = `${PUBLIC_IMAGE_HOST}/home/${
 		form === 'default' ? `${id}-${size}` : `${id}-${form}-${size}`
 	}.webp`;
 </script>

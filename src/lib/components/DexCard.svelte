@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { variables } from '$lib/variables';
+	import { PUBLIC_IMAGE_HOST } from '$env/static/public';
 	import classnames from 'classnames';
 
 	import Portrait from './Portrait.svelte';
@@ -13,7 +13,7 @@
 	export let types: string[];
 	export let lazy = false;
 	const link = (id: number) =>
-		(variables.imageHost || '') + `/home/${id}-${form !== 'default' ? `${form}-` : ''}${128}.webp`;
+		(PUBLIC_IMAGE_HOST || '') + `/home/${id}-${form !== 'default' ? `${form}-` : ''}${128}.webp`;
 </script>
 
 <a

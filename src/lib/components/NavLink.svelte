@@ -1,7 +1,8 @@
 <script lang="ts">
+	import { PUBLIC_IMAGE_HOST } from '$env/static/public';
+
 	import classnames from 'classnames';
 	import PokemonFigure from './PokemonFigure.svelte';
-	import variables from '$lib/variables';
 
 	export let name: string;
 	export let id: number;
@@ -30,11 +31,7 @@
 	{/if}
 
 	<div class={classnames('sm:grid', { hidden: left || right, 'col-span-2': !left && !right })}>
-		<PokemonFigure
-			species={name}
-			size={64}
-			imageUrl={`${variables.imageHost}/home/${id}-64.webp`}
-		/>
+		<PokemonFigure species={name} size={64} imageUrl={`${PUBLIC_IMAGE_HOST}/home/${id}-64.webp`} />
 	</div>
 
 	{#if left}

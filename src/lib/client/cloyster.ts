@@ -1,5 +1,5 @@
 import type { PokemonData } from '$lib/types/types';
-import { dbUrl, dbApiKey } from '$lib/variables';
+import { DB_URL, DB_API_KEY } from '$env/static/private';
 
 export const getPokemonList = async (start = 1, end = 30) => {
 	const body = {
@@ -21,13 +21,13 @@ export const getPokemonList = async (start = 1, end = 30) => {
 		headers: {
 			'Content-Type': 'application/json',
 			'Access-Control-Request-Headers': '*',
-			'api-key': dbApiKey,
+			'api-key': DB_API_KEY,
 			Accept: 'application/json'
 		},
 		body: JSON.stringify(body)
 	};
 
-	const rsp = await fetch(`${dbUrl}/action/find`, options);
+	const rsp = await fetch(`${DB_URL}/action/find`, options);
 	const json = await rsp.json();
 	const sorted = json.documents.sort((a: { id: number }, b: { id: number }) => a.id - b.id);
 	return sorted;
@@ -49,11 +49,11 @@ export const insertOrUpdatePokemonDetail = async (pokemonData: PokemonData) => {
 		headers: {
 			'Content-Type': 'application/json',
 			'Access-Control-Request-Headers': '*',
-			'api-key': dbApiKey
+			'api-key': DB_API_KEY
 		},
 		body: JSON.stringify(body)
 	};
-	const rsp = await fetch(`${dbUrl}/action/updateOne`, options);
+	const rsp = await fetch(`${DB_URL}/action/updateOne`, options);
 	const json = await rsp.json();
 	return json;
 };
@@ -73,13 +73,13 @@ export const getPokemonDetail = async (species: string, variant: string) => {
 		headers: {
 			'Content-Type': 'application/json',
 			'Access-Control-Request-Headers': '*',
-			'api-key': dbApiKey,
+			'api-key': DB_API_KEY,
 			Accept: 'application/json'
 		},
 		body: JSON.stringify(body)
 	};
 
-	const rsp = await fetch(`${dbUrl}/action/find`, options);
+	const rsp = await fetch(`${DB_URL}/action/find`, options);
 	const json = await rsp.json();
 	const { documents } = json;
 	return documents.at(0) || null;

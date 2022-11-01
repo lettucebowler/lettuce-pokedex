@@ -1,6 +1,6 @@
 <script lang="ts">
+	import { PUBLIC_IMAGE_HOST } from '$env/static/public';
 	import classnames from 'classnames';
-	import variables from '$lib/variables';
 	import Type from './Type.svelte';
 
 	export let types: string[] = ['default'];
@@ -11,7 +11,7 @@
 	export let lazy = false;
 
 	const homeLink = (id: number | string) =>
-		`${variables.imageHost || ''}/home/${id}${size !== 512 ? `-${size}` : ''}.webp`;
+		`${PUBLIC_IMAGE_HOST || ''}/home/${id}${size !== 512 ? `-${size}` : ''}.webp`;
 </script>
 
 <div class="w-full rounded-lg bg-white">

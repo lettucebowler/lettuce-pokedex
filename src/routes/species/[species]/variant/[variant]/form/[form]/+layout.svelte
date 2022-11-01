@@ -1,7 +1,7 @@
 <script lang="ts">
 	import SpeciesNav from '$lib/components/SpeciesNav.svelte';
 	import TypeBorder from '$lib/components/TypeBorder.svelte';
-	import { imageHost } from '$lib/variables';
+	import { PUBLIC_IMAGE_HOST } from '$env/static/public';
 	export let data: import('./$types').LayoutData;
 
 	$: currentId = data?.navigation?.current?.id;
@@ -10,12 +10,14 @@
 <svelte:head>
 	<link
 		rel="preload"
-		href={`${imageHost}/home/${currentId < 904 ? currentId + 2 : (currentId + 2) % 905}-64.webp`}
+		href={`${PUBLIC_IMAGE_HOST}/home/${
+			currentId < 904 ? currentId + 2 : (currentId + 2) % 905
+		}-64.webp`}
 		as="image"
 	/>
 	<link
 		rel="preload"
-		href={`${imageHost}/home/${currentId > 2 ? currentId - 2 : 905 - currentId}-64.webp`}
+		href={`${PUBLIC_IMAGE_HOST}/home/${currentId > 2 ? currentId - 2 : 905 - currentId}-64.webp`}
 		as="image"
 	/>
 </svelte:head>
