@@ -9,7 +9,9 @@
 </script>
 
 <svelte:head>
-	<meta name="description" content={pokemonData.species} />
-	<title>{capitalize(pokemonData.species)}</title>
+	<meta name="description" content={pokemonData?.species || 'Lettuce Pokedex'} />
+	<title>{capitalize(pokemonData?.species || 'Lettuce Pokedex')}</title>
 </svelte:head>
-<PokemonDetail {pokemonData} {form} />
+{#if pokemonData}
+	<PokemonDetail {pokemonData} {form} />
+{/if}

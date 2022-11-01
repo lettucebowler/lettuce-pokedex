@@ -18,10 +18,10 @@ export const stashDetail = async (pokemonDetail: any) => {
 
 export const getDetail = async (species: string, variant: string) => {
 	const before = new Date();
-	let detail = null;
+	let detail: PokemonData | null = null;
 	const key = await redis.get(`${species}-${variant}`);
 	if (!key) {
-		return detail;
+		return detail || null;
 	}
 	detail = (await redis.get(key.toString())) || detail;
 	const after = new Date();
