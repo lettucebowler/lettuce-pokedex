@@ -1,12 +1,11 @@
 import type { PokemonData } from '$lib/types/types';
 import { DB_URL, DB_API_KEY } from '$env/static/private';
-import PokemonDetail from '$lib/components/PokemonDetail.svelte';
 
 export const getPokemonList = async (start = 1, end = 30) => {
 	const body = {
 		collection: 'pokemon',
 		database: 'Pokemon',
-		dataSource: 'Cloyster',
+		dataSource: 'Shellder',
 		filter: {
 			id: { $gte: start, $lte: end }
 		},
@@ -38,7 +37,7 @@ export const insertOrUpdatePokemonDetail = async (pokemonData: PokemonData) => {
 	const body = {
 		collection: 'pokemon',
 		database: 'Pokemon',
-		dataSource: 'Cloyster',
+		dataSource: 'Shelllder',
 		update: {
 			$set: pokemonData
 		},
@@ -63,7 +62,7 @@ export const getPokemonDetail = async (species: string, variant: string) => {
 	const body = {
 		collection: 'pokemon',
 		database: 'Pokemon',
-		dataSource: 'Cloyster',
+		dataSource: 'Shellder',
 		filter: {
 			species: species,
 			variant: variant
