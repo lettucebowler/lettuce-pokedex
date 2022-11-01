@@ -2,6 +2,8 @@ import { UPSTASH_REDIS_REST_TOKEN, UPSTASH_REDIS_REST_URL } from '$env/static/pr
 
 import { Redis } from '@upstash/redis';
 
+import type { PokemonData } from '$lib/types/types';
+
 const redis = new Redis({
 	url: UPSTASH_REDIS_REST_URL,
 	token: UPSTASH_REDIS_REST_TOKEN
@@ -33,10 +35,10 @@ export const getPokemonList = async (count: number = 905, start: number = 0) => 
 	const keys = Array(count)
 		.fill(null)
 		.map((_, i) => (i + start).toString());
-	let details = await redis.mget(...keys);
+	let details: PokemonData[] = await redis.mget(...keys);
 	const after = new Date();
 	const duration = after.getTime() - before.getTime();
 	console.log(duration);
 
-	return details || [];
+	return details;
 };
