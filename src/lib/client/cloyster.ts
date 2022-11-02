@@ -1,13 +1,13 @@
 import type { PokemonData } from '$lib/types/types';
 import { DB_URL, DB_API_KEY } from '$env/static/private';
 
-export const getPokemonList = async (start = 1, end = 30) => {
+export const getPokemonList = async (count: number = 905, start: number = 1) => {
 	const body = {
 		collection: 'pokemon',
 		database: 'Pokemon',
 		dataSource: 'Shellder',
 		filter: {
-			id: { $gte: start, $lte: end }
+			id: { $gte: start, $lte: start + count }
 		},
 		projection: {
 			species: 1,

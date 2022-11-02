@@ -15,14 +15,14 @@
 
 <div
 	class="m-auto flex w-full min-w-[320px] max-w-[1200px] flex-col gap-2 pb-1"
-	data-sveltekit-prefetch
+	data-sveltekit-reload
 >
 	<div
 		class="w-full rounded-b-[22px] border-b-2 border-l-2 border-r-2 border-default-100 bg-default-200 pb-1 pl-1 pr-1"
 	>
 		<div class="w-full rounded-b-2xl bg-default-300">
 			<div class="flex w-full flex-wrap justify-around">
-				<a title="link to home page" href="/" data-sveltekit-prefetch>
+				<a title="link to home page" href="/" data-sveltekit-reload>
 					<h1 class="p-2 text-center text-2xl font-bold">Pokédex</h1>
 				</a>
 			</div>

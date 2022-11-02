@@ -16,11 +16,11 @@
 
 <div class="w-full rounded-lg bg-white">
 	<img
-		alt={`${species} official artwork`}
+		alt={species}
 		src={`${homeLink(`${id}${form === 'default' ? '' : `-${form}`}`)}`}
 		id={`${id}-big}`}
 		loading={lazy ? 'lazy' : 'eager'}
-		class={classnames('m-auto w-full aspect-square', {
+		class={classnames('m-auto w-full aspect-square min-h-[64px]', {
 			'max-w-[128px]': size === 128,
 			'max-w-[64px]': size === 64,
 			'max-w-[512px]': size === 512
