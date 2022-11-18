@@ -2,10 +2,9 @@
 	import PokemonCard from '$lib/components/PokemonCard.svelte';
 	import EvolutionCard from './EvolutionCard.svelte';
 	import InfoCard from '$lib/components/InfoCard.svelte';
-	import type { PokemonData } from '$lib/types/types';
 	import TypeBorder from './TypeBorder.svelte';
 
-	export let pokemonData: PokemonData;
+	export let pokemonData: any;
 	export let form: any;
 </script>
 
