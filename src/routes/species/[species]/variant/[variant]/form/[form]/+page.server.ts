@@ -1,7 +1,7 @@
 import { getPokemonData } from '$lib/util/pokemonData';
+import type { PageServerLoad } from './$types';
 
-/** @type {import('./$types').PageLoad} */
-export const load = async ({ params }: any) => {
+export const load: PageServerLoad = async ({ params }: any) => {
 	const { species, variant, form } = params;
 	let cached;
 
@@ -9,10 +9,6 @@ export const load = async ({ params }: any) => {
 
 	if (!cached) {
 		pokemonData = await getPokemonData(species, variant);
-	}
-
-	if (!pokemonData) {
-		return error(404);
 	}
 
 	return {
