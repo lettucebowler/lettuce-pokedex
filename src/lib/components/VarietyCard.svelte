@@ -6,7 +6,7 @@
 </script>
 
 <div class="flex flex-col rounded-lg bg-white p-2 text-center">
-	<h3 class="text-xl font-bold">Variants</h3>
+	<h3 class="text-xl font-bold capitalize">variants</h3>
 	<div
 		class="grid gap-1"
 		class:grid-cols-2={varieties.length === 2}

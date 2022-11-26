@@ -5,8 +5,6 @@
 	import Portrait from './Portrait.svelte';
 	import TypeBorder from './TypeBorder.svelte';
 
-	const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
-
 	export let species: string = 'bulbasaur';
 	export let form = 'default';
 	export let id = 1;
@@ -28,9 +26,9 @@
 			class={classnames('flex flex-col text-center w-full justify-end box-border gap-1.5')}
 		>
 			<figcaption
-				class="rounded-lg bg-white p-1 p-1 text-center font-sans font-sans text-sm font-extrabold sm:text-base md:text-lg lg:text-xl"
+				class="rounded-lg bg-white p-1 p-1 text-center font-sans font-sans text-sm font-extrabold capitalize sm:text-base md:text-lg lg:text-xl"
 			>
-				{capitalize(species)}
+				{species}
 			</figcaption>
 			<Portrait {id} {species} {form} {types} {lazy} size={128} />
 		</figure>

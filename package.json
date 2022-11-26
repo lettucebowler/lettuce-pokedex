@@ -16,16 +16,16 @@
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/adapter-vercel": "next",
 		"@sveltejs/kit": "next",
-		"@typescript-eslint/eslint-plugin": "^5.43.0",
-		"@typescript-eslint/parser": "^5.43.0",
+		"@typescript-eslint/eslint-plugin": "^5.44.0",
+		"@typescript-eslint/parser": "^5.44.0",
 		"autoprefixer": "^10.4.13",
 		"classnames": "^2.3.2",
-		"eslint": "^8.27.0",
+		"eslint": "^8.28.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte3": "^4.0.0",
 		"itty-fetcher": "^0.7.5",
 		"postcss": "^8.4.19",
-		"prettier": "^2.7.1",
+		"prettier": "^2.8.0",
 		"prettier-plugin-svelte": "^2.8.1",
 		"prettier-plugin-tailwindcss": "^0.1.13",
 		"svelte": "^3.53.1",
@@ -40,6 +40,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@upstash/redis": "^1.16.1"
+		"@upstash/redis": "^1.18.0"
 	}
 }

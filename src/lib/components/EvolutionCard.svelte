@@ -4,6 +4,6 @@
 </script>
 
 <div class="rounded-lg bg-white p-2 text-center">
-	<h2 class="m-2 text-lg font-bold">Evolution Chart</h2>
+	<h2 class="m-2 text-lg font-bold capitalize">evolution chart</h2>
 	<EvolutionChart {evolutionChain} />
 </div>

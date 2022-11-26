@@ -1,11 +1,9 @@
 <script lang="ts">
 	import classnames from 'classnames';
-	import { capitalize } from '$lib/util/helpers';
 
 	export let size = 64;
 	export let species: string;
 	export let imageUrl: string;
-	export let variant: string = 'default';
 	export let form = 'default';
 </script>
 
@@ -19,7 +17,7 @@
 			'h-[512px]': size === 512
 		})}
 	/>
-	<figcaption class="m-0 text-center align-bottom text-sm font-bold">
-		{capitalize(form !== 'default' ? form : variant !== 'default' ? variant : species)}
+	<figcaption class="m-0 text-center align-bottom text-sm font-bold capitalize">
+		{form !== 'default' ? form : species}
 	</figcaption>
 </figure>

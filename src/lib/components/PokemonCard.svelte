@@ -1,8 +1,6 @@
 <script lang="ts">
-	import { slide } from 'svelte/transition';
-
 	import VarietyCard from './VarietyCard.svelte';
-	import { leftPad, capitalize } from '$lib/util/helpers';
+	import { leftPad } from '$lib/util/helpers';
 
 	import TypeBorder from './TypeBorder.svelte';
 
@@ -22,7 +20,7 @@
 <TypeBorder {types}>
 	<div class="grid grid-cols-3 gap-2">
 		<div class="col-span-2 grid rounded-lg bg-white p-1 text-center">
-			<h2 class="text-lg font-bold">{capitalize(species)}</h2>
+			<h2 class="text-lg font-bold capitalize">{species}</h2>
 			<span class="text-md">{genus}</span>
 		</div>
 		<div

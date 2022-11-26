@@ -92,3 +92,8 @@ export const getEvolutionChain = async (id: number) => {
 	logDuration('evolution-chain', before);
 	return cleaned;
 };
+
+export const getPokemonList = async (start: number = 0, count: number = 905) => {
+	const pokemon = (await api.get('/pokemon-species', { limit: 905 })) as any;
+	return pokemon;
+};

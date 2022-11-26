@@ -8,7 +8,7 @@
 </script>
 
 <div class="flex flex-col gap-1 rounded-lg bg-white p-2 text-center">
-	<h3 class="text-xl font-bold">Forms</h3>
+	<h3 class="text-xl font-bold capitalize">forms</h3>
 	<div
 		class={classnames('grid gap-1', {
 			'grid-cols-2': forms.length === 2,

@@ -1,9 +1,10 @@
 <script lang="ts">
 	import PokemonDetail from '$lib/components/PokemonDetail.svelte';
-	import { capitalize } from '$lib/util/helpers';
 
 	export let data: import('./$types').PageData;
 	$: ({ pokemonData, form } = data);
+
+	const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 </script>
 
 <svelte:head>

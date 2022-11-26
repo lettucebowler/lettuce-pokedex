@@ -23,7 +23,7 @@
 		<div class="w-full rounded-b-2xl bg-default-300">
 			<div class="flex w-full flex-wrap justify-around">
 				<a title="link to home page" href="/" data-sveltekit-prefetch>
-					<h1 class="p-2 text-center text-2xl font-bold">Pokédex</h1>
+					<h1 class="p-2 text-center text-2xl font-bold capitalize">pokédex</h1>
 				</a>
 			</div>
 		</div>
