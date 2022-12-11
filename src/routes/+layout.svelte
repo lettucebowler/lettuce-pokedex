@@ -13,7 +13,10 @@
 	<link rel="mask-icon" href={safariPinnedTabIcon} color="#a3be8c" />
 </svelte:head>
 
-<div class="m-auto flex w-full min-w-[320px] max-w-[1200px] flex-col gap-2 pb-1">
+<div
+	class="m-auto flex w-full min-w-[320px] max-w-[1200px] flex-col gap-2 pb-1"
+	data-sveltekit-preload-data
+>
 	<div
 		class="w-full rounded-b-[22px] border-b-2 border-l-2 border-r-2 border-default-100 bg-default-200 pb-1 pl-1 pr-1"
 	>
