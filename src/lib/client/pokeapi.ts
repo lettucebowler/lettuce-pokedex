@@ -15,9 +15,9 @@ const logDuration = (name: string, before: Date) => {
 };
 
 export const getForm = async (id: number) => {
-	const before = new Date();
+	// const before = new Date();
 	const formData = await api.get(`/pokemon-form/${id}/`);
-	logDuration('form', before);
+	// logDuration('form', before);
 	return formData as any;
 };
 
@@ -31,14 +31,14 @@ export type PokemonData = {
 };
 
 export const getPokemon = async (species: string, variant: string) => {
-	const before = new Date();
+	// const before = new Date();
 	const realVariant = variant === 'default' ? getDefaultForm(species) : variant;
 	const variantUrl = `/pokemon/${species}${realVariant !== 'default' ? `-${realVariant}` : ''}`;
 
 	const pokemonData = (await api.get(variantUrl)) as any;
 
 	const { abilities, height, weight, id } = pokemonData;
-	logDuration('pokemon', before);
+	// logDuration('pokemon', before);
 	return {
 		abilities,
 		height,
@@ -50,7 +50,7 @@ export const getPokemon = async (species: string, variant: string) => {
 };
 
 export const getSpecies = async (species: string) => {
-	const before = new Date();
+	// const before = new Date();
 	const speciesUrl = `/pokemon-species/${species}`;
 	const speciesData = (await api.get(speciesUrl)) as any;
 	const { flavor_text_entries, genera, varieties, evolution_chain } = speciesData;
@@ -66,7 +66,7 @@ export const getSpecies = async (species: string) => {
 		const id = parseInt(variant.pokemon.url.split('/').at(-2));
 		return { is_default, pokemon: { name: pokemon.name, id, url: pokemon.url } };
 	});
-	logDuration('species', before);
+	// logDuration('species', before);
 	return {
 		evolution_chain,
 		dexNum,
@@ -77,7 +77,7 @@ export const getSpecies = async (species: string) => {
 };
 
 export const getEvolutionChain = async (id: number) => {
-	const before = new Date();
+	// const before = new Date();
 	if (!id) {
 		return {
 			evolves_to: [],
@@ -89,7 +89,7 @@ export const getEvolutionChain = async (id: number) => {
 	const evolutionChain = (await api.get(`/evolution-chain/${id}/`)) as any;
 	const { chain } = evolutionChain;
 	const cleaned = cleanupChain(chain);
-	logDuration('evolution-chain', before);
+	// logDuration('evolution-chain', before);
 	return cleaned;
 };
 
