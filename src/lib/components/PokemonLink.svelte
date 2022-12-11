@@ -15,7 +15,6 @@
 <a
 	href={`/species/${species}/variant/${variant}/form/${form}`}
 	class="grid h-full w-full place-items-center"
-	data-sveltekit-prefetch
 >
 	<div class="h-full w-full rounded-lg p-2 hover:backdrop-brightness-90 hover:backdrop-filter">
 		<PokemonFigure {species} form={form === 'default' ? variant : form} {size} {imageUrl} />
