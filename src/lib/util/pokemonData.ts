@@ -27,7 +27,14 @@ export const getNavEntries = (species: string): PokemonNavigation | null => {
 
 import { getPokemon, getSpecies, getEvolutionChain } from '$lib/client/pokeapi';
 
+const logDuration = (name: string, before: Date) => {
+	const after = new Date();
+	const duration = after.getTime() - before.getTime();
+	console.log(`${name} loaded: ${duration}`);
+};
+
 export const getPokemonData = async (species: string, variant: string) => {
+	const before = new Date();
 	const [speciesData, pokemon] = await Promise.all([
 		getSpecies(species),
 		getPokemon(species, variant)
@@ -52,5 +59,6 @@ export const getPokemonData = async (species: string, variant: string) => {
 		genus,
 		id: pokemon.id
 	};
+	logDuration(species, before);
 	return data;
 };

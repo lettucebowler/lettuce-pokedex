@@ -1,6 +1,6 @@
 import { getNavEntries } from '$lib/util/pokemonData';
 
-export const prerender = false;
+export const prerender = true;
 
 export const load: import('./$types').PageServerLoad = async ({ params }) => {
 	return {
