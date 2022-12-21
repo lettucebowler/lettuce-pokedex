@@ -16,9 +16,6 @@ const config = {
 			out: 'build',
 			edge: true
 		}),
-		paths: {
-			assets: 'https://cdn.dex.rusondia.net'
-		},
 		prerender: {
 			concurrency: 25,
 			handleHttpError: 'warn'

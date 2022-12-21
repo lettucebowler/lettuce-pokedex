@@ -4,11 +4,10 @@ import { getList, stashList } from '$lib/client/redis';
 import { getPokemonData } from '$lib/util/pokemonData';
 
 export async function load() {
-	const beforeRedis = performance.now();
+	const beforeRedis = new Date().getTime();
 	const rlist = await getList();
-	const afterRedis = performance.now();
-	const redisDuration = afterRedis - beforeRedis;
-	console.log('redis loaded', redisDuration);
+	const afterRedis = new Date().getTime();
+	console.log('redis loaded', afterRedis - beforeRedis);
 
 	if (rlist) {
 		return {
@@ -16,9 +15,9 @@ export async function load() {
 		};
 	}
 
-	const beforeApi = performance.now();
+	const beforeApi = new Date().getTime();
 	const list = await getApiList();
-	const afterApi = performance.now();
+	const afterApi = new Date().getTime();
 	const apiDuration = afterApi - beforeApi;
 	console.log('api loaded', apiDuration, 'ms');
 
