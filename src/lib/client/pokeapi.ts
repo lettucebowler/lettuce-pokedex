@@ -8,12 +8,6 @@ const api = fetcher({
 	base: POKEAPI_HOST + '/api/v2'
 });
 
-const logDuration = (name: string, before: Date) => {
-	const after = new Date();
-	const duration = after.getTime() - before.getTime();
-	console.log(`${name} loaded: ${duration}`);
-};
-
 export const getForm = async (id: number) => {
 	// const before = new Date();
 	const formData = await api.get(`/pokemon-form/${id}/`);
@@ -49,17 +43,16 @@ export const getPokemon = async (species: string, variant: string) => {
 	} as PokemonData;
 };
 
-export const getSpecies = async (species: string) => {
-	// const before = new Date();
+export const getSpecies = async (species: string | number) => {
 	const speciesUrl = `/pokemon-species/${species}`;
 	const speciesData = (await api.get(speciesUrl)) as any;
-	const { flavor_text_entries, genera, varieties, evolution_chain } = speciesData;
+	const { name, flavor_text_entries, genera, varieties, evolution_chain } = speciesData;
 	const description: string = flavor_text_entries
 		.filter((f: { language: { name: string } }) => f.language.name === 'en')
-		.at(-1).flavor_text;
+		.at(-1)?.flavor_text || '';
 	const genus: string = genera.filter(
 		(g: { language: { name: string } }) => g.language.name === 'en'
-	)[0].genus;
+	)[0]?.genus || '';
 	const dexNum = pokedex.indexOf(species) + 1;
 	const variants = filterVarieties(varieties).map((variant) => {
 		const { is_default, pokemon } = variant;
@@ -72,7 +65,8 @@ export const getSpecies = async (species: string) => {
 		dexNum,
 		description,
 		variants,
-		genus
+		genus,
+		species: name,
 	};
 };
 
@@ -89,11 +83,10 @@ export const getEvolutionChain = async (id: number) => {
 	const evolutionChain = (await api.get(`/evolution-chain/${id}/`)) as any;
 	const { chain } = evolutionChain;
 	const cleaned = cleanupChain(chain);
-	// logDuration('evolution-chain', before);
 	return cleaned;
 };
 
 export const getPokemonList = async (start: number = 0, count: number = 905) => {
-	const pokemon = (await api.get('/pokemon-species', { limit: 905 })) as any;
+	const pokemon = (await api.get('/pokemon-species', { limit: 1008 })) as any;
 	return pokemon;
 };

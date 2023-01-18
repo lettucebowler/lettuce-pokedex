@@ -1,27 +1,40 @@
-import { pokedex } from './pokedex';
 import type { PokemonNavigation } from '$lib/types/types';
 
-export const getNavEntries = (species: string): PokemonNavigation | null => {
-	if (!species || !pokedex.includes(species)) {
-		return null;
-	}
-	const dexNum = pokedex.indexOf(species) + 1;
-	const next = {
-		id: (dexNum % pokedex.length) + 1,
-		name: pokedex.at(dexNum % pokedex.length)
-	};
-	const current = {
-		id: dexNum,
-		name: pokedex.at(dexNum - 1)
-	};
-	const previous = {
-		id: dexNum === 1 ? pokedex.length : pokedex.indexOf(pokedex.at(dexNum - 1)),
-		name: pokedex.at(dexNum - 2)
-	};
+const mod = (n: number, base: number) => ((n % base) + base) % base;
+
+const getSpeciesNameFromNumber = async (id: number) => {
+	const { species} = await getSpecies(id);
 	return {
-		next,
-		previous,
-		current
+		id,
+		name: species,
+	};
+}
+
+export const getNavEntries = async (species: string) => {
+	const pokedexLength = 905;
+	const {dexNum: currentNum, species: currentSpecies} = await getSpecies(species);
+
+	const nextNum = mod(currentNum + 1, pokedexLength);
+	const previousNum = mod(currentNum - 1, pokedexLength) || pokedexLength;
+
+	// const {species: nextSpecies} = await getSpecies(nextNum);
+	// const { species: previousSpecies} = await getSpecies(previousNum);
+	// const next = {
+	// 	id: nextNum,
+	// 	name: nextSpecies,
+	// };
+	const current = {
+		id: currentNum,
+		name: currentSpecies
+	};
+	// const previous = {
+	// 	id: previousNum,
+	// 	name: previousSpecies,
+	// };
+	return {
+		current,
+		next: getSpeciesNameFromNumber(nextNum),
+		previous: getSpeciesNameFromNumber(previousNum)
 	};
 };
 

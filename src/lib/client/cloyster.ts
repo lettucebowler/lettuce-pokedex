@@ -1,6 +1,17 @@
 import type { PokemonData } from '$lib/types/types';
 import { DB_URL, DB_API_KEY } from '$env/static/private';
 
+import { fetcher } from 'itty-fetcher';
+
+const cloyster = fetcher({
+	base: DB_URL,
+	transformRequest(req) {
+		req.headers['Access-Control-Request-Handlers'] = '*';
+		req.headers['api-key'] = DB_API_KEY;
+		return req;
+	}
+})
+
 export const getPokemonList = async (count: number = 905, start: number = 1) => {
 	const body = {
 		collection: 'pokemon',
@@ -16,28 +27,20 @@ export const getPokemonList = async (count: number = 905, start: number = 1) => 
 			_id: 0
 		}
 	};
-	const options = {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json',
-			'Access-Control-Request-Headers': '*',
-			'api-key': DB_API_KEY,
-			Accept: 'application/json'
-		},
-		body: JSON.stringify(body)
-	};
-
-	const rsp = await fetch(`${DB_URL}/action/find`, options);
-	const json = await rsp.json();
+	const json = await cloyster.post('/action/find', body);
 	const sorted = json.documents.sort((a: { id: number }, b: { id: number }) => a.id - b.id);
 	return sorted;
 };
+
+export const getDexRange = async (start = 0, end = 1008) => {
+
+}
 
 export const insertOrUpdatePokemonDetail = async (pokemonData: PokemonData) => {
 	const body = {
 		collection: 'pokemon',
 		database: 'Pokemon',
-		dataSource: 'Shelllder',
+		dataSource: 'Shellder',
 		update: {
 			$set: pokemonData
 		},
