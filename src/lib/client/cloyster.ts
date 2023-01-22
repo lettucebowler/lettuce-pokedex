@@ -10,7 +10,7 @@ const cloyster = fetcher({
 		req.headers['api-key'] = DB_API_KEY;
 		return req;
 	}
-})
+});
 
 export const getPokemonList = async (count: number = 905, start: number = 1) => {
 	const body = {
@@ -32,9 +32,7 @@ export const getPokemonList = async (count: number = 905, start: number = 1) => 
 	return sorted;
 };
 
-export const getDexRange = async (start = 0, end = 1008) => {
-
-}
+export const getDexRange = async (start = 0, end = 1008) => {};
 
 export const insertOrUpdatePokemonDetail = async (pokemonData: PokemonData) => {
 	const body = {

@@ -1,14 +1,22 @@
 import { getPokemonList } from '$lib/client/cloyster';
+import { getList, stashList } from '$lib/client/redis';
 export async function load() {
-	const beforeApi = new Date().getTime();
-	const list = await getPokemonList();
-	const afterApi = new Date().getTime();
-	const apiDuration = afterApi - beforeApi;
-	console.log('api loaded', apiDuration, 'ms');
+	let cached;
+	console.time('get pokemon list from redis');
+	cached = await getList();
+	console.timeEnd('get pokemon list from redis');
 
-	const pokemonList = list as any[];
+	if (!cached) {
+		console.time('load pokemon list');
+		const list = await getPokemonList();
+		console.timeEnd('load pokemon list');
+		stashList(list);
+		return {
+			pokemonList: list
+		};
+	}
 
 	return {
-		pokemon: pokemonList,
+		pokemon: cached
 	};
 }

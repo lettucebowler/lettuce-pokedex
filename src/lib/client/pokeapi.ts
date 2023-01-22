@@ -47,12 +47,12 @@ export const getSpecies = async (species: string | number) => {
 	const speciesUrl = `/pokemon-species/${species}`;
 	const speciesData = (await api.get(speciesUrl)) as any;
 	const { name, flavor_text_entries, genera, varieties, evolution_chain } = speciesData;
-	const description: string = flavor_text_entries
-		.filter((f: { language: { name: string } }) => f.language.name === 'en')
-		.at(-1)?.flavor_text || '';
-	const genus: string = genera.filter(
-		(g: { language: { name: string } }) => g.language.name === 'en'
-	)[0]?.genus || '';
+	const description: string =
+		flavor_text_entries
+			.filter((f: { language: { name: string } }) => f.language.name === 'en')
+			.at(-1)?.flavor_text || '';
+	const genus: string =
+		genera.filter((g: { language: { name: string } }) => g.language.name === 'en')[0]?.genus || '';
 	const dexNum = pokedex.indexOf(species) + 1;
 	const variants = filterVarieties(varieties).map((variant) => {
 		const { is_default, pokemon } = variant;
@@ -66,7 +66,7 @@ export const getSpecies = async (species: string | number) => {
 		description,
 		variants,
 		genus,
-		species: name,
+		species: name
 	};
 };
 
