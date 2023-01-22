@@ -7,9 +7,9 @@ export const load: PageServerLoad = async ({ params }: any) => {
 	const { species, variant, form } = params;
 	let cached;
 
-	console.time(`load ${species}-${variant}-${form} detail from cache`);
-	cached = await getDetail(species, variant);
-	console.timeEnd(`load ${species}-${variant}-${form} detail from cache`);
+	// console.time(`load ${species}-${variant}-${form} detail from cache`);
+	// cached = await getDetail(species, variant);
+	// console.timeEnd(`load ${species}-${variant}-${form} detail from cache`);
 
 	let pokemonData;
 
@@ -18,7 +18,7 @@ export const load: PageServerLoad = async ({ params }: any) => {
 		pokemonData = await getPokemonData(species, variant);
 		console.timeEnd(`load ${species}-${variant}-${form} detail from api`);
 		insertOrUpdatePokemonDetail(pokemonData);
-		stashDetail(pokemonData);
+		// stashDetail(pokemonData);
 		return {
 			pokemonData,
 			form

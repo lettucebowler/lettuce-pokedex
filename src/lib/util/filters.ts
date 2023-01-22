@@ -30,7 +30,10 @@ const varietyFilters: { [x: string]: boolean } = {
 	'pikachu-cosplay': true,
 	'pikachu-starter': true,
 	'eevee-starter': true,
-	'basculegion-female': true
+	'basculegion-female': true,
+	'tauros-paldea-combat-breed': true,
+	'tauros-paldea-blaze-breed': true,
+	'tauros-paldea-aqua-breed': true
 };
 
 const defaultOverrides = new Map([
