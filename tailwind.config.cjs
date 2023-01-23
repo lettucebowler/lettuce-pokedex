@@ -1,5 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+	safelist: [
+		'@[64px]:hidden',
+		'@[64px]:block',
+		'@[128px]:hidden',
+		'@[128px]:block',
+		'@[256px]:hidden',
+		'@[256px]:block',
+		'@[512px]:hidden',
+		'@[512px]:block'
+	],
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
 		colors: {
@@ -102,5 +112,5 @@ module.exports = {
 			}
 		}
 	},
-	plugins: []
+	plugins: [require('@tailwindcss/container-queries')]
 };

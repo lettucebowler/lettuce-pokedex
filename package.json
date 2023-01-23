@@ -14,8 +14,10 @@
 	"devDependencies": {
 		"@sveltejs/adapter-vercel": "1.0.5",
 		"@sveltejs/kit": "1.2.2",
+		"@tailwindcss/container-queries": "^0.1.0",
 		"@typescript-eslint/eslint-plugin": "^5.48.2",
 		"@typescript-eslint/parser": "^5.48.2",
+		"@upstash/redis": "^1.19.1",
 		"autoprefixer": "^10.4.13",
 		"classnames": "^2.3.2",
 		"eslint": "^8.32.0",
@@ -37,9 +39,6 @@
 		"vite": "^4.0.4"
 	},
 	"type": "module",
-	"dependencies": {
-		"@upstash/redis": "^1.19.1"
-	},
 	"pnpm": {
 		"patchedDependencies": {
 			"@sveltejs/adapter-vercel@1.0.5": "patches/@sveltejs__adapter-vercel@1.0.5.patch"

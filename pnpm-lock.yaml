@@ -2,12 +2,13 @@ lockfileVersion: 5.4
 
 patchedDependencies:
   '@sveltejs/adapter-vercel@1.0.5':
-    hash: a3bjmkb4sjugynfayv6dutdr3i
+    hash: 6fhcowl664xy6fhzk7cnbgappi
     path: patches/@sveltejs__adapter-vercel@1.0.5.patch
 
 specifiers:
   '@sveltejs/adapter-vercel': 1.0.5
   '@sveltejs/kit': 1.2.2
+  '@tailwindcss/container-queries': ^0.1.0
   '@typescript-eslint/eslint-plugin': ^5.48.2
   '@typescript-eslint/parser': ^5.48.2
   '@upstash/redis': ^1.19.1
@@ -31,14 +32,13 @@ specifiers:
   typescript: ~4.7.4
   vite: ^4.0.4
 
-dependencies:
-  '@upstash/redis': 1.19.1
-
 devDependencies:
-  '@sveltejs/adapter-vercel': 1.0.5_a3bjmkb4sjugynfayv6dutdr3i_@sveltejs+kit@1.2.2
+  '@sveltejs/adapter-vercel': 1.0.5_6fhcowl664xy6fhzk7cnbgappi_@sveltejs+kit@1.2.2
   '@sveltejs/kit': 1.2.2_svelte@3.55.1+vite@4.0.4
+  '@tailwindcss/container-queries': 0.1.0_tailwindcss@3.2.4
   '@typescript-eslint/eslint-plugin': 5.48.2_2hbgynhxm74hsb5vlfnyqgemdi
   '@typescript-eslint/parser': 5.48.2_oz6z67amphy2h47f67wll6poxm
+  '@upstash/redis': 1.19.1
   autoprefixer: 10.4.13_postcss@8.4.21
   classnames: 2.3.2
   eslint: 8.32.0
@@ -467,7 +467,7 @@ packages:
       picomatch: 2.3.1
     dev: true
 
-  /@sveltejs/adapter-vercel/1.0.5_a3bjmkb4sjugynfayv6dutdr3i_@sveltejs+kit@1.2.2:
+  /@sveltejs/adapter-vercel/1.0.5_6fhcowl664xy6fhzk7cnbgappi_@sveltejs+kit@1.2.2:
     resolution:
       {
         integrity: sha512-TnFw+2ZwUuzguIeh013h0eiFmHylBuL1aV3jcUWbJmBLRo6YA0Ti8X8VXgFP4izP7XGuLKdpUIMg7HaZe21LbA==
@@ -535,6 +535,17 @@ packages:
       vitefu: 0.2.4_vite@4.0.4
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@tailwindcss/container-queries/0.1.0_tailwindcss@3.2.4:
+    resolution:
+      {
+        integrity: sha512-t1GeJ9P8ual160BvKy6Y1sG7bjChArMaK6iRXm3ZYjZGN2FTzmqb5ztsTDb9AsTSJD4NMHtsnaI2ielrXEk+hw==
+      }
+    peerDependencies:
+      tailwindcss: '>=3.2.0'
+    dependencies:
+      tailwindcss: 3.2.4_postcss@8.4.21
     dev: true
 
   /@types/cookie/0.5.1:
@@ -743,7 +754,7 @@ packages:
       isomorphic-fetch: 3.0.0
     transitivePeerDependencies:
       - encoding
-    dev: false
+    dev: true
 
   /@vercel/nft/0.22.6:
     resolution:
@@ -1938,7 +1949,7 @@ packages:
       whatwg-fetch: 3.6.2
     transitivePeerDependencies:
       - encoding
-    dev: false
+    dev: true
 
   /itty-fetcher/0.7.6:
     resolution:
@@ -2222,6 +2233,7 @@ packages:
         optional: true
     dependencies:
       whatwg-url: 5.0.0
+    dev: true
 
   /node-gyp-build/4.6.0:
     resolution:
@@ -3107,6 +3119,7 @@ packages:
       {
         integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==
       }
+    dev: true
 
   /tslib/1.14.1:
     resolution:
@@ -3257,13 +3270,14 @@ packages:
       {
         integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==
       }
+    dev: true
 
   /whatwg-fetch/3.6.2:
     resolution:
       {
         integrity: sha512-bJlen0FcuU/0EMLrdbJ7zOnW6ITZLrZMIarMUVmdKtsGvZna8vxKYaexICWPfZ8qwf9fzNq+UEIZrnSaApt6RA==
       }
-    dev: false
+    dev: true
 
   /whatwg-url/5.0.0:
     resolution:
@@ -3273,6 +3287,7 @@ packages:
     dependencies:
       tr46: 0.0.3
       webidl-conversions: 3.0.1
+    dev: true
 
   /which/2.0.2:
     resolution:
