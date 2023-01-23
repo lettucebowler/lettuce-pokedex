@@ -63,7 +63,6 @@ index 529225d7cf28f9aaf8139b350c60b5db0f868f7f..843cffc49549b02af708af11bfbb397e
  		],
 -		overrides
 +		overrides,
-+		images: {},
  	};
  }
  
