@@ -10,22 +10,19 @@
 	export let size = 512;
 	export let lazy = false;
 
-	const homeLink = (id: number | string) =>
-		`${PUBLIC_IMAGE_HOST || ''}/home/${id}${size !== 512 ? `-${size}` : ''}.webp`;
+	const homeLink = (id: number | string) => `${PUBLIC_IMAGE_HOST || ''}/home/${id}.webp`;
 </script>
 
 <div class="w-full rounded-lg bg-white">
-	<img
-		alt={species}
-		src={`${homeLink(`${id}${form === 'default' ? '' : `-${form}`}`)}`}
-		id={`${id}-big}`}
-		loading={lazy ? 'lazy' : 'eager'}
-		class={classnames('m-auto w-full aspect-square min-h-[64px]', {
-			'max-w-[128px]': size === 128,
-			'max-w-[64px]': size === 64,
-			'max-w-[512px]': size === 512
-		})}
-	/>
+	<picture>
+		<img
+			alt={species}
+			src={`${homeLink(`${id}${form === 'default' ? '' : `-${form}`}`)}`}
+			id={`${id}-big}`}
+			loading={lazy ? 'lazy' : 'eager'}
+			class={classnames('m-auto w-full aspect-square min-h-[64px]', {})}
+		/>
+	</picture>
 	<div class="grid grid-cols-2 gap-1 p-1">
 		{#each types as type}
 			<div
