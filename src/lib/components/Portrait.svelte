@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { dev } from '$app/environment';
 	import { PUBLIC_IMAGE_HOST } from '$env/static/public';
 	import classnames from 'classnames';
 	import Type from './Type.svelte';
@@ -11,22 +10,21 @@
 	export let size = 512;
 	export let lazy = false;
 
-	const homeLink = (id: number | string, form: string, size: number) => dev ? `${id}${
-			form === 'default' ? '' : `-${form}`
-		}.webp` : `/_vercel/image?url=/home/${id}${
-			form === 'default' ? '' : `-${form}`
-		}.webp&w=${size}&q=100`;
-
-	console.log(dev);
+	const homeLink = (id: number | string) =>
+		`${PUBLIC_IMAGE_HOST || ''}/home/${id}${size !== 512 ? `-${size}` : ''}.webp`;
 </script>
 
 <div class="w-full rounded-lg bg-white">
 	<img
 		alt={species}
-		src={homeLink(id, form, size)}
+		src={`${homeLink(`${id}${form === 'default' ? '' : `-${form}`}`)}`}
 		id={`${id}-big}`}
 		loading={lazy ? 'lazy' : 'eager'}
-		class={`w-full aspect-square object-contain`}
+		class={classnames('m-auto w-full aspect-square min-h-[64px]', {
+			'max-w-[128px]': size === 128,
+			'max-w-[64px]': size === 64,
+			'max-w-[512px]': size === 512
+		})}
 	/>
 	<div class="grid grid-cols-2 gap-1 p-1">
 		{#each types as type}

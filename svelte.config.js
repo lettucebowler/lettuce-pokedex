@@ -14,12 +14,7 @@ const config = {
 	kit: {
 		adapter: adapter({
 			out: 'build',
-			edge: true,
-			platform: {
-				images: {
-					sizes: [64, 128, 256, 512]
-				}
-			}
+			edge: true
 		}),
 		prerender: {
 			concurrency: 25,
