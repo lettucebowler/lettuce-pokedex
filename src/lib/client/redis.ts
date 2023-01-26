@@ -26,10 +26,13 @@ export const stashDetail = async (pokemonDetail: any) => {
 type navItem = {
 	id: number;
 	name: string;
-}
+};
 
-export const stashNav = async (species: string, nav: {current: navItem; previous: navItem; next: navItem}) => {
+export const stashNav = async (
+	species: string,
+	nav: { current: navItem; previous: navItem; next: navItem }
+) => {
 	redis.set(`nav-${species}`, nav);
-}
+};
 
 export const getNav = async (species: string) => redis.get(`nav-${species}`);

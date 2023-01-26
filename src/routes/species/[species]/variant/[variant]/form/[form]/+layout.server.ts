@@ -3,7 +3,7 @@ import { getNav, stashNav } from '$lib/client/redis';
 
 const mod = (n: number, base: number) => ((n % base) + base) % base;
 
-export const prerender = false;
+export const prerender = true;
 
 const getSpeciesNameFromNumber = async (id: number) => {
 	const { species } = await getSpecies(id);
@@ -20,13 +20,12 @@ export const load: import('./$types').PageServerLoad = async ({ params }) => {
 	const cached = await getNav(params.species);
 	console.timeEnd(`load nav for ${params.species} from cache`);
 
-
 	if (cached) {
 		return {
-			navigation: cached,
-		}
+			navigation: cached
+		};
 	}
-	
+
 	console.time(`load nav for ${params.species} from api`);
 	const { dexNum: currentNum, species: currentSpecies } = await getSpecies(params.species || '');
 	const nextNum = mod(currentNum + 1, pokedexLength) || pokedexLength;

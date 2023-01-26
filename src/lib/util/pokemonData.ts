@@ -1,31 +1,3 @@
-const mod = (n: number, base: number) => ((n % base) + base) % base;
-
-const getSpeciesNameFromNumber = async (id: number) => {
-	const { species } = await getSpecies(id);
-	return {
-		id,
-		name: species
-	};
-};
-
-export const getNavEntries = async (species: string) => {
-	const pokedexLength = 905;
-	const { dexNum: currentNum, species: currentSpecies } = await getSpecies(species);
-
-	const nextNum = mod(currentNum + 1, pokedexLength);
-	const previousNum = mod(currentNum - 1, pokedexLength) || pokedexLength;
-
-	const current = {
-		id: currentNum,
-		name: currentSpecies
-	};
-	return {
-		current,
-		next: getSpeciesNameFromNumber(nextNum),
-		previous: getSpeciesNameFromNumber(previousNum)
-	};
-};
-
 import { getPokemon, getSpecies, getEvolutionChain } from '$lib/client/pokeapi';
 
 export const getPokemonData = async (species: string, variant: string) => {

@@ -8,9 +8,9 @@ export const load: LayoutServerLoad = async (event) => {
 	const { species, variant, form } = event.params;
 	let cached;
 
-	console.time(`load ${species}-${variant}-${form} detail from cache`);
-	cached = await getDetail(species, variant) as PokemonData;
-	console.timeEnd(`load ${species}-${variant}-${form} detail from cache`);
+	// console.time(`load ${species}-${variant}-${form} detail from cache`);
+	// cached = await getDetail(species, variant) as PokemonData;
+	// console.timeEnd(`load ${species}-${variant}-${form} detail from cache`);
 
 	let pokemonData;
 
@@ -27,8 +27,8 @@ export const load: LayoutServerLoad = async (event) => {
 	}
 
 	event.setHeaders({
-		'cache-control': 'public, max-age=3153600',
-	})
+		'cache-control': 'public, max-age=3153600'
+	});
 
 	return {
 		pokemonData: cached,
