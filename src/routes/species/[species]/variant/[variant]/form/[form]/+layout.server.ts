@@ -3,7 +3,7 @@ import { getNav, stashNav } from '$lib/client/redis';
 
 const mod = (n: number, base: number) => ((n % base) + base) % base;
 
-export const prerender = true;
+export const prerender = false;
 
 const getSpeciesNameFromNumber = async (id: number) => {
 	const { species } = await getSpecies(id);
