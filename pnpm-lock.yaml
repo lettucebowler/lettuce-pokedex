@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@sveltejs/adapter-vercel': ^1.0.6
+  '@sveltejs/adapter-vercel': ^2.0.0
   '@sveltejs/kit': ^1.9.3
   '@tailwindcss/container-queries': ^0.1.0
   '@typescript-eslint/eslint-plugin': ^5.54.0
@@ -28,7 +28,7 @@ specifiers:
   vite: ^4.1.4
 
 devDependencies:
-  '@sveltejs/adapter-vercel': 1.0.6_@sveltejs+kit@1.9.3
+  '@sveltejs/adapter-vercel': 2.2.1_@sveltejs+kit@1.9.3
   '@sveltejs/kit': 1.9.3_svelte@3.55.1+vite@4.1.4
   '@tailwindcss/container-queries': 0.1.0_tailwindcss@3.2.7
   '@typescript-eslint/eslint-plugin': 5.54.0_xc6s7o5qxlcfoxnt6u3vbthovi
@@ -470,13 +470,13 @@ packages:
       picomatch: 2.3.1
     dev: true
 
-  /@sveltejs/adapter-vercel/1.0.6_@sveltejs+kit@1.9.3:
+  /@sveltejs/adapter-vercel/2.2.1_@sveltejs+kit@1.9.3:
     resolution:
       {
-        integrity: sha512-fo6aaEygPd/6B5Jms4Ff7R4jbADnppuLvKOWBNTGe5MGB7ZRUkl+gxHWMQx2av2knyEZkA6V8y5M6R3ML5yN4g==
+        integrity: sha512-W8+qytNSvFTr56CC4RLC/PeSuzB8m/LnnZlZD3v23qlgRrHHcYyN5mZJHaZmQvQeqsue7rby+LKfqqZiElstlg==
       }
     peerDependencies:
-      '@sveltejs/kit': ^1.0.0
+      '@sveltejs/kit': ^1.5.0
     dependencies:
       '@sveltejs/kit': 1.9.3_svelte@3.55.1+vite@4.1.4
       '@vercel/nft': 0.22.6

@@ -16,15 +16,15 @@ const getSpeciesNameFromNumber = async (id: number) => {
 export const load: import('./$types').PageServerLoad = async ({ params }) => {
 	const pokedexLength = 905;
 
-	console.time(`load nav for ${params.species} from cache`);
-	const cached = await getNav(params.species);
-	console.timeEnd(`load nav for ${params.species} from cache`);
+	// console.time(`load nav for ${params.species} from cache`);
+	// const cached = await getNav(params.species);
+	// console.timeEnd(`load nav for ${params.species} from cache`);
 
-	if (cached) {
-		return {
-			navigation: cached
-		};
-	}
+	// if (cached) {
+	// 	return {
+	// 		navigation: cached
+	// 	};
+	// }
 
 	console.time(`load nav for ${params.species} from api`);
 	const { dexNum: currentNum, species: currentSpecies } = await getSpecies(params.species || '');
