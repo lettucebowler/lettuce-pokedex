@@ -14,7 +14,10 @@ const config = {
 	kit: {
 		adapter: adapter({
 			out: 'build',
-			runtime: 'edge'
+			runtime: 'nodejs18.x',
+			isr: {
+				expiration: 3600
+			}
 		}),
 		prerender: {
 			concurrency: 25,
